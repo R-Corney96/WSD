@@ -6,7 +6,7 @@
 
 <%@page import="wsd.main.User"%>
 <%@page import="wsd.main.Users"%>
-<%@page contentType="text/html" import="java.util.*" import="uts.wsd.*"  pageEncoding="UTF-8"%>
+<%@page contentType="text/html" import="java.util.*" import="wsd.main.*"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
     <head>
@@ -36,8 +36,8 @@
         users.addUser(user);
         diaryApp.updateXML(users, filePath);
         %>
-        <body>      
-    </body>
+        <body> 
+            <p>You registered!</p>
     <%
         session.setAttribute("user", user);
     }else{
@@ -50,3 +50,4 @@
     <p>Sorry, you must agree to the Terms of Service.</p>
     <p>Click <a href="register.jsp">here</a> to go back.</p>
     <%}%>
+        </body>
