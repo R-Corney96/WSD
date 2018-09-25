@@ -34,7 +34,6 @@ public class Users implements Serializable {
         for (User user : list) {
             if (user.getEmail().equals(email) && user.getPassword().equals(password))
                 return user; // Login correct. Return this user.
-            else return null; // ussername or password not correct.
         }
         return null; // Login incorrect. Return null.
     }

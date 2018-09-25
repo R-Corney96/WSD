@@ -4,7 +4,10 @@
     Author     : robert
 --%>
 
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page contentType="text/html charsetEncoding=UTF-8" pageEncoding="UTF-8" import="wsd.main.*"%>
+<%
+User user = (User) session.getAttribute("user");
+%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,8 +18,15 @@
         <div class="menu">
             <table>
                 <td>
-                <tr><a href="register.jsp">Register</a></tr>
-            <tr><a href="login.jsp">Login</a></tr>
+                    <% if(user == null){%>
+                        <tr><a href="register.jsp">Register</a></tr>
+                        <tr><a href="login.jsp">Login</a></tr>
+                    <%}
+                    else{%>
+                        <tr><a href="account.jsp.jsp">My Account</a></tr>
+                        <tr><a href="cart.jsp">Cart?</a></tr>
+                    <%}
+                    %>
                 </td>
             </table>
         </div>
