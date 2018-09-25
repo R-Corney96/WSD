@@ -23,8 +23,9 @@ User user = (User) session.getAttribute("user");
                         <tr><a href="login.jsp">Login</a></tr>
                     <%}
                     else{%>
-                        <tr><a href="account.jsp.jsp">My Account</a></tr>
+                        <tr><a href="account.jsp">My Account</a></tr>
                         <tr><a href="cart.jsp">Cart?</a></tr>
+                        <tr><a href="logoutAction.jsp">Logout</a></tr>
                     <%}
                     %>
                 </td>

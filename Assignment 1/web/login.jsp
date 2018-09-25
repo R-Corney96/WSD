@@ -19,6 +19,14 @@
     </head>
     <body>
     <h1>Login</h1>
+    <%
+    String var = request.getParameter("var");
+    if(var != null){
+        %>
+        Login was not successful!
+    <%
+    }
+    %>
         <form action="loginAction.jsp" method="post">
             <table>                
                 <tr><td>Email</td><td><input type="text" name="email"></td></tr>

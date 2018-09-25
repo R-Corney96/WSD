@@ -27,10 +27,10 @@
     
             if (user != null) {
                 session.setAttribute("user", user);
-            %><p>Login successful. Click <a href="index.jsp">here</a> to return to the main page.</p>                        
-            <%}else{
-            %><p>Username or Password incorrect. Click <a href="login.jsp">here</a> to try again.</p>
-            <%}
+                response.sendRedirect("index.jsp");                   
+            }else{
+                response.sendRedirect("login.jsp?var=1");
+            }
     %>
     </body>
 </html>
