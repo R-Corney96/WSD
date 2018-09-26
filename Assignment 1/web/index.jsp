@@ -18,18 +18,16 @@ User user = (User) session.getAttribute("user");
         <div class="menu">
             <table>
                 <td>
-                    <% if(user == null){%>
                         <tr><a href="register.jsp">Register</a></tr>
                         <tr><a href="login.jsp">Login</a></tr>
-                    <%}
-                    else{%>
-                        <tr><a href="account.jsp">My Account</a></tr>
-                        <tr><a href="cart.jsp">Cart?</a></tr>
-                        <tr><a href="logoutAction.jsp">Logout</a></tr>
-                    <%}
-                    %>
                 </td>
             </table>
+        </div>
+        <div>
+                    <% String filePath = application.getRealPath("WEB-INF/movies.xml"); %>
+    <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
+    <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
+    </jsp:useBean>
         </div>
     </body>
 </html>

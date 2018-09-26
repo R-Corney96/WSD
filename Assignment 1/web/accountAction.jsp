@@ -36,6 +36,6 @@
     diaryApp.setUsers(users);
     diaryApp.updateXML(users, filePath);
     session.setAttribute("user", user);
-    response.sendRedirect("index.jsp");
+    response.sendRedirect("account.jsp");
 %>
 </html>

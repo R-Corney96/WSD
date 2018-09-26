@@ -27,7 +27,7 @@
     
             if (user != null) {
                 session.setAttribute("user", user);
-                response.sendRedirect("index.jsp");                   
+                response.sendRedirect("main.jsp");                   
             }else{
                 response.sendRedirect("login.jsp?var=1");
             }

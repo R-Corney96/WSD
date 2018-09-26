@@ -12,6 +12,17 @@
         <title>JSP Page</title>
     </head>
     <body>
-        <h1>Hello World!</h1>
+        <div>
+            <table>
+                <td>
+                        <tr><a href="account.jsp">My Account</a></tr>
+                        <tr><a href="logoutAction.jsp">Logout</a></tr>
+                </td>
+            </table>
+        </div>
+        <div>
+            <h1>History</h1>
+            <-- insert history of orders for user -->
+        </div>
     </body>
 </html>

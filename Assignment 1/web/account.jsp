@@ -40,6 +40,6 @@
             </tr>
         </table>
         </form>
-        <p>Return to the <a href="index.jsp">main page</a>.</p>
+        <p>Return to the <a href="main.jsp">main page</a>.</p>
     </body>
 </html>

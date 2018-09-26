@@ -8,10 +8,10 @@ and open the template in the editor.
 
 <movies>
     <movie>
-        <title></title>
-        <genre></genre>
-        <release_date></release_date>
-        <price></price>
-        <available_copies></available_copies>
+        <title>Iron Man</title>
+        <genre>action</genre>
+        <release_date>2008</release_date>
+        <price>10.0</price>
+        <available_copies>3</available_copies>
     </movie>
 </movies>
