@@ -25,9 +25,11 @@ User user = (User) session.getAttribute("user");
         </div>
         <div>
                     <% String filePath = application.getRealPath("WEB-INF/movies.xml"); %>
-    <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
+    <!--
+    <jsp:useBean id="movieApp" class="wsd.main.MovieApplication" scope="application">
     <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
+    -->
         </div>
     </body>
 </html>
