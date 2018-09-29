@@ -9,9 +9,23 @@ and open the template in the editor.
 <movies>
     <movie>
         <title>Iron Man</title>
-        <genre>action</genre>
         <release_date>2008</release_date>
-        <price>10.0</price>
+        <genre>Action</genre>
+        <price>10.00</price>
         <available_copies>3</available_copies>
+    </movie>
+    <movie>
+        <title>Scott Pilgrim vs. the World</title>
+        <release_date>2010</release_date>
+        <genre>Comedy</genre>
+        <price>7.77</price>
+        <available_copies>7</available_copies>
+    </movie>
+    <movie>
+        <title>Shrek</title>
+        <release_date>2001</release_date>
+        <genre>Family</genre>
+        <price>999.99</price>
+        <available_copies>0</available_copies>
     </movie>
 </movies>
