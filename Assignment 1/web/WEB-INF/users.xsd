@@ -19,7 +19,7 @@ and open the template in the editor.
     
     <xs:simpleType name="emailType">
     <xs:restriction base="xs:string">
-        <xs:pattern value="[a-zA-Z\._]+@[a-z\-]+(\.[a-z\-]+)+"/>
+        <xs:pattern value="[a-zA-Z\._\d]+@[a-zA-Z\-]+(\.[a-zA-Z\-]+)+"/>
     </xs:restriction>
     </xs:simpleType>
     
