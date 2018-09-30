@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
+<movies xmlns="http://www.uts.edu.au/31284/wsd-movies"
+ xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+ xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-movies movies.xsd">
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
-
-
-<movies>
     <movie>
         <title>Iron Man</title>
         <release_date>2008</release_date>
