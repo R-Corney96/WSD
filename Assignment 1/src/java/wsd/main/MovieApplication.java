@@ -5,17 +5,14 @@
  */
 package wsd.main;
 
-import java.io.FileInputStream;
-import java.io.FileOutputStream;
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
+import java.io.*;
+import javax.xml.bind.*;
 
 /**
  *
  * @author Sebastian
  */
-public class MovieApplication {
+public class MovieApplication implements Serializable {
     
     private String filePath;
     private Movies movies;
@@ -26,8 +23,6 @@ public class MovieApplication {
     
     //Constructor which takes a filepath and movies
     public MovieApplication(String filePath, Movies movies) {
-        super();
-        this.movies = movies;
         this.filePath = filePath;
     }
 
