@@ -4,6 +4,7 @@
     Author     : robert
 --%>
 
+<%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html charsetEncoding=UTF-8" pageEncoding="UTF-8" import="wsd.main.*"%>
 <%
 User user = (User) session.getAttribute("user");
@@ -24,12 +25,20 @@ User user = (User) session.getAttribute("user");
             </table>
         </div>
         <div>
-                    <% String filePath = application.getRealPath("WEB-INF/movies.xml"); %>
+            
+    <% String filePath = application.getRealPath("WEB-INF/movies.xml"); %>
     <!--
     <jsp:useBean id="movieApp" class="wsd.main.MovieApplication" scope="application">
-    <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
+    <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
     -->
+    <% Movies movies = movieApp.getMovies();
+    ArrayList<Movie> movieList = new ArrayList();
+    out.print(movies);
+    %>
+    
+    
+    
         </div>
     </body>
 </html>

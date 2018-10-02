@@ -2,7 +2,6 @@
 
 <!--
     Document   : movies.xsl
-    Created on : 29 September 2018, 2:45 PM
     Author     : Sebastian
     Description:
         Purpose of transformation follows.
