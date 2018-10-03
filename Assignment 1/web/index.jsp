@@ -13,7 +13,7 @@ User user = (User) session.getAttribute("user");
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Movies</title>
     </head>
     <body>
         <div class="menu">
@@ -24,21 +24,14 @@ User user = (User) session.getAttribute("user");
                 </td>
             </table>
         </div>
+        
+        <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
-            
-    <% String filePath = application.getRealPath("WEB-INF/movies.xml"); %>
-    <!--
-    <jsp:useBean id="movieApp" class="wsd.main.MovieApplication" scope="application">
-    <jsp:setProperty name="movieApp" property="filePath" value="<%=filePath%>"/>
-    </jsp:useBean>
-    -->
-    <% Movies movies = movieApp.getMovies();
-    ArrayList<Movie> movieList = new ArrayList();
-    out.print(movies);
-    %>
-    
-    
-    
+            <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+            <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
+            <c:import var="xml" url="/WEB-INF/movies.xml" />
+            <c:import var="xslt" url="/WEB-INF/movies.xsl"/>
+            <x:transform xml="${xml}" xslt="${xslt}"/>
         </div>
     </body>
 </html>
