@@ -35,10 +35,9 @@
         diaryApp.updateXML(users, filePath);
         %>
         <body> 
-            <p>You registered!</p>
-            <p>Click <a href="index.jsp">here</a> to go to home page.</p>
-    <%
+ <%
         session.setAttribute("user", user);
+        response.sendRedirect("main.jsp");
     }else{
 %>
     <p>Sorry, email already in use.</p>
