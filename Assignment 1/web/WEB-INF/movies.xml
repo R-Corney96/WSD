@@ -2,17 +2,17 @@
 <?xml-stylesheet type="text/xsl" href="movies.xsl"?>
 
 <movies>
- <!--
- xmlns="http://www.uts.edu.au/31284/wsd-movies"
- xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
- xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-movies movies.xsd"
- -->
+    <!--
+    xmlns="http://www.uts.edu.au/31284/wsd-movies"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-movies movies.xsd"
+    -->
 
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
+    <!--
+    To change this license header, choose License Headers in Project Properties.
+    To change this template file, choose Tools | Templates
+    and open the template in the editor.
+    -->
     <movie>
         <title>Iron Man</title>
         <release_date>2008</release_date>
@@ -33,5 +33,26 @@ and open the template in the editor.
         <genre>Family</genre>
         <price>999.99</price>
         <available_copies>0</available_copies>
+    </movie>
+    <movie>
+        <title>The Godfather</title>
+        <release_date>1972</release_date>
+        <genre>Crime</genre>
+        <price>20.00</price>
+        <available_copies>2</available_copies>
+    </movie>
+    <movie>
+        <title>The Shawshank Redemption</title>
+        <release_date>1994</release_date>
+        <genre>Drama</genre>
+        <price>15.00</price>
+        <available_copies>6</available_copies>
+    </movie>
+    <movie>
+        <title>Batman - The Dark Knight</title>
+        <release_date>2008</release_date>
+        <genre>Action</genre>
+        <price>15.00</price>
+        <available_copies>4</available_copies>
     </movie>
 </movies>
