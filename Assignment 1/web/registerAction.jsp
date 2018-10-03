@@ -4,8 +4,6 @@
     Author     : robert
 --%>
 
-<%@page import="wsd.main.User"%>
-<%@page import="wsd.main.Users"%>
 <%@page contentType="text/html" import="java.util.*" import="wsd.main.*"  pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 
@@ -38,6 +36,7 @@
         %>
         <body> 
             <p>You registered!</p>
+            <p>Click <a href="index.jsp">here</a> to go to home page.</p>
     <%
         session.setAttribute("user", user);
     }else{

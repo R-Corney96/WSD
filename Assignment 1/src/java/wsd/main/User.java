@@ -40,6 +40,7 @@ public class User implements Serializable {
         this.name = name;
         this.password = password;
         this.phone_number = phone_number;
+        this.address = address;
     }
 
     public String getEmail() {

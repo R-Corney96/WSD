@@ -14,24 +14,24 @@
         <title>login_Action_Page</title>
     </head>
     <body>
-        <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
-    <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
-    <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
-    </jsp:useBean>
-    
-    <%
-    Users users = diaryApp.getUsers();
-    String email = request.getParameter("email");
-    String password = request.getParameter("password");
-    User user = users.login(email, password);
-    
+        <% String filePath = application.getRealPath("WEB-INF/users.xml");%>
+        <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
+            <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
+        </jsp:useBean>
+
+        <%
+            Users users = diaryApp.getUsers();
+            String email = request.getParameter("email");
+            String password = request.getParameter("password");
+            User user = users.login(email, password);
+
             if (user != null) {
                 session.setAttribute("user", user);
-                response.sendRedirect("main.jsp");                   
-            }else{
+                response.sendRedirect("main.jsp");
+            } else {
                 response.sendRedirect("login.jsp?var=1");
             }
-    %>
+        %>
     </body>
 </html>
 
