@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+ <?xml version="1.0" encoding="UTF-8"?>
 <!--
 To change this license header, choose License Headers in Project Properties.
 To change this template file, choose Tools | Templates
@@ -10,22 +10,24 @@ and open the template in the editor.
 <!-- 
 JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
-<orders>
-    <order id="###">
-        <status id ="submitted/cancelled"></status>
-        <user>
-            <name></name>
-            <email></email>
-        </user>
-        <movies>
-            <movie>
-                <title></title>
-                <genre></genre>
-                <release_date></release_date>
-                <price></price>
-            </movie>
-        </movies>
-        <payment_method></payment_method>
-        <total_cost></total_cost>
-    </order>
-</orders>
+<user>
+     <name></name>
+     <email></email>
+        
+     <orders>
+        <order id="###">
+         <status id ="submitted/cancelled"></status>
+        
+         <movies>
+                <movie>
+                    <title></title>
+                    <genre></genre>
+                 <release_date></release_date>
+                  <price></price>
+               </movie>
+         </movies>
+          <payment_method></payment_method>
+          <total_cost></total_cost>
+     </order>
+    </orders>
+</user>

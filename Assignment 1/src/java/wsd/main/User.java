@@ -13,6 +13,7 @@ package wsd.main;
 import java.beans.*;
 import java.io.*;
 import javax.xml.bind.annotation.*;
+import java.util.*;
 
 /**
  *
@@ -32,6 +33,8 @@ public class User implements Serializable {
     private String phone_number;
     @XmlElement(name = "address")
     private String address;
+    
+    Movies movies = new Movies();
 
     public User() {
     }
@@ -82,5 +85,12 @@ public class User implements Serializable {
     public void setAddress(String address) {
         this.address = address;
     } 
+    
+    public void addMovie(Movie movie) {
+        movies.addMovie(movie);
+    }
+    public Movies getMovies() {
+       return movies;
+    }
 } 
 
