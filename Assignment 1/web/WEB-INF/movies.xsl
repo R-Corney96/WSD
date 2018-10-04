@@ -64,7 +64,7 @@ xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
         <tr>
             <td>
                 <div class="title"><xsl:apply-templates/></div>
-                <div class="release_date">(<xsl:value-of select="../release_date"/>)</div>
+                <div class="release_date">(<xsl:value-of select="../test:release_date"/>)</div>
             </td>
         </tr>
     </xsl:template>
