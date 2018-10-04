@@ -15,7 +15,7 @@ import java.io.Serializable;
 import javax.xml.bind.annotation.*;
  
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="users")
+@XmlRootElement(name="users", namespace="http://www.uts.edu.au/31284/wsd-users")
 public class Users implements Serializable {
     
     @XmlElement(name="user")

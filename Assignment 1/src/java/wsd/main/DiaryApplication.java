@@ -31,7 +31,7 @@ public class DiaryApplication implements Serializable {
         this.filePath = filePath;
         // Now unmarshal the object from the file
         FileInputStream fin = new FileInputStream(filePath);
-        users = (Users)u.unmarshal(fin); // This loads the "shop" object
+        users = (Users)u.unmarshal(fin);
         fin.close();
     }
 
