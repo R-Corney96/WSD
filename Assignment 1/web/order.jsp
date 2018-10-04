@@ -28,5 +28,6 @@
          <h2 class="header">Orders</h2>
         <table class="main_table" >
             <tr ><td align="right" class="userName" >You are logged in as  <%=userName%></td></tr>
+        </table>
     </body>
 </html>

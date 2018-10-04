@@ -6,54 +6,54 @@ and open the template in the editor.
 -->
 
 <xs:schema
- xmlns:xs="http://www.w3.org/2001/XMLSchema"
- targetNamespace="http://www.uts.edu.au/31284/wsd-users"
- xmlns="http://www.uts.edu.au/31284/wsd-users"
- elementFormDefault="qualified">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uts.edu.au/31284/wsd-users"
+    xmlns="http://www.uts.edu.au/31284/wsd-users"
+    elementFormDefault="qualified">
     
     <xs:simpleType name="nameType">
-    <xs:restriction base="xs:string">
-        <xs:pattern value="[A-Z]{1}[a-zA-Z]+([ ][A-Z]{1}[a-zA-Z]+)*"/>
-    </xs:restriction>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}[a-zA-Z]+([ ][A-Z]{1}[a-zA-Z]+)*"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="emailType">
-    <xs:restriction base="xs:string">
-        <xs:pattern value="[a-zA-Z\._\d]+@[a-zA-Z\-]+(\.[a-zA-Z\-]+)+"/>
-    </xs:restriction>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z\._\d]+@[a-zA-Z\-]+(\.[a-zA-Z\-]+)+"/>
+        </xs:restriction>
     </xs:simpleType>
     
     <xs:simpleType name="passwordType">
-    <xs:restriction base="xs:string">
-        <xs:minLength  value="4" />
-        <xs:maxLength  value="30" />
-        <xs:pattern  value="[a-zA-Z0-9\p{P}$\^\+=~`|]+" />
-    </xs:restriction>
+        <xs:restriction base="xs:string">
+            <xs:minLength  value="4" />
+            <xs:maxLength  value="30" />
+            <xs:pattern  value="[a-zA-Z0-9\p{P}$\^\+=~`|]+" />
+        </xs:restriction>
     </xs:simpleType>
     
-     <xs:simpleType name="phoneType">
-    <xs:restriction base="xs:string">
-        <xs:minLength  value="10" />
-        <xs:maxLength  value="10" />
-        <xs:pattern  value="[0]{1}\d{9}" />
-    </xs:restriction>
+    <xs:simpleType name="phoneType">
+        <xs:restriction base="xs:string">
+            <xs:minLength  value="10" />
+            <xs:maxLength  value="10" />
+            <xs:pattern  value="[0]{1}\d{9}" />
+        </xs:restriction>
     </xs:simpleType>
 
-<xs:element name = "users">
+    <xs:element name = "users">
         <xs:complexType> 
             <xs:sequence> 
                 <xs:element name = "user" maxOccurs="unbounded"> 
                     <xs:complexType> 
                         <xs:sequence> 
-                         <xs:element name="name" type="nameType" /> 
-                         <xs:element name="email" type="emailType" />
-                         <xs:element name="password" type="passwordType" />
-                         <xs:element name="phone_number" type="phoneType" />
-                         <xs:element name="address" type="xs:string" />
+                            <xs:element name="name" type="nameType" /> 
+                            <xs:element name="email" type="emailType" />
+                            <xs:element name="password" type="passwordType" />
+                            <xs:element name="phone_number" type="phoneType" />
+                            <xs:element name="address" type="xs:string" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-             </xs:sequence>
+            </xs:sequence>
         </xs:complexType>
     </xs:element> 
 

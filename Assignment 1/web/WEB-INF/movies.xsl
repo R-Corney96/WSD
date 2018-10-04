@@ -7,7 +7,9 @@
         Purpose of transformation follows.
 -->
 
-<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0">
+<xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
+xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
+>
     <xsl:output method="html"/>
 
     <!-- TODO customize transformation rules 
@@ -35,7 +37,7 @@
     </xsl:template>
     
     
-    <xsl:template match="movies">
+    <xsl:template match="test:movies">
         <table class="movies">
             <thead>
                 <tr>
@@ -49,7 +51,7 @@
     </xsl:template>
     
     
-    <xsl:template match="movie">
+    <xsl:template match="test:movie">
         <table class="movie">
             <tbody>
                 <xsl:apply-templates/>
@@ -58,7 +60,7 @@
     </xsl:template>
     
     
-    <xsl:template match="movie/title">
+    <xsl:template match="test:movie/test:title">
         <tr>
             <td>
                 <div class="title"><xsl:apply-templates/></div>
@@ -68,10 +70,10 @@
     </xsl:template>
     
     
-    <xsl:template match="movie/release_date"/>
+    <xsl:template match="test:movie/test:release_date"/>
 
     
-    <xsl:template match="movie/genre">
+    <xsl:template match="test:movie/test:genre">
         <tr>
         <td class="genre"> 
             Genre: <xsl:apply-templates/> 
@@ -80,7 +82,7 @@
     </xsl:template>
     
     
-    <xsl:template match="movie/price">
+    <xsl:template match="test:movie/test:price">
         <tr>
             <td/>
         <td class="price"> 
@@ -90,7 +92,7 @@
     </xsl:template>
     
     
-    <xsl:template match="movie/available_copies">
+    <xsl:template match="test:movie/test:available_copies">
         <tr>
             <td class="avaliable_copies">
             In Stock: <xsl:apply-templates/>
