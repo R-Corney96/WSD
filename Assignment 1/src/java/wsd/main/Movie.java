@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="user")
+@XmlRootElement(name="movie")
 public class Movie implements Serializable {
     @XmlElement(name = "title")
     private String title;
