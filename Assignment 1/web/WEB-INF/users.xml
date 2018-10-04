@@ -6,15 +6,14 @@ and open the template in the editor.
 -->
 
 
-<users>
-    <!--    
-     xmlns="http://www.uts.edu.au/31284/wsd-users"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-users users.xsd">
-    -->    
+<users 
+    xmlns="http://www.uts.edu.au/31284/wsd-users"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-users users.xsd"
+>     
     <user>
-        <name>Philip Aubert</name>
         <email>philipaubert123@hotmail.com</email>
+        <name>Philip Aubert</name>
         <password>lolpassword</password>
         <phone_number>0498443689</phone_number>
         <address>161 broadway street</address>

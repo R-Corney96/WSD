@@ -44,9 +44,9 @@ and open the template in the editor.
             <xs:sequence> 
                 <xs:element name = "user" maxOccurs="unbounded"> 
                     <xs:complexType> 
-                        <xs:sequence> 
+                        <xs:sequence>
+                            <xs:element name="email" type="emailType" /> 
                             <xs:element name="name" type="nameType" /> 
-                            <xs:element name="email" type="emailType" />
                             <xs:element name="password" type="passwordType" />
                             <xs:element name="phone_number" type="phoneType" />
                             <xs:element name="address" type="xs:string" />

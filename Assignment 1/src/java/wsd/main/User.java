@@ -20,7 +20,7 @@ import java.util.*;
  * @author robert
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="user")
+@XmlRootElement(name="user", namespace="http://www.uts.edu.au/31284/wsd-users")
 public class User implements Serializable {
     
     @XmlElement(name = "email")
