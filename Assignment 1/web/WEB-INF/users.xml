@@ -18,14 +18,20 @@ and open the template in the editor.
         <password>lolpassword</password>
         <phone_number>0498443689</phone_number>
         <address>161 broadway street</address>
-        <movies>
-            <movie>
-                <title>Batman - The Dark Knight</title>
-                <release_date>2008</release_date>
-                <genre>Action</genre>
-                <price>15.00</price>
-                <available_copies>4</available_copies>
-            </movie>
-        </movies>
+        <orders>
+            <order>
+                <ID> 001</ID>
+                <movies>
+                    <movie>
+                        <title>Iron Man</title>
+                        <release_date>2008</release_date>
+                        <genre>Action</genre>
+                        <price>10.00</price>
+                        <available_copies>3</available_copies>
+                    </movie>
+                    <copiesPurchased>1</copiesPurchased>
+                </movies> 
+            </order>
+        </orders>
     </user>
 </users>

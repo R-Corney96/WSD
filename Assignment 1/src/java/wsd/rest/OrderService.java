@@ -64,17 +64,17 @@ public class OrderService {
     }
     @GET
     @Produces("application/xml")
-    @Path("/users/{email}/movies")
-    public Movies getMovies(@PathParam("email") String email) throws JAXBException, IOException {
+    @Path("/users/{email}/orders")
+    public Orders getOrders(@PathParam("email") String email) throws JAXBException, IOException {
         synchronized(application) {
             if (getUser(email) != null) {
-            Movies movies = getUser(email).getMovies();
-            if (movies == null) {
-                movies = new Movies();
-                application.setAttribute("movies", movies);
+            Orders orders = getUser(email).getOrders();
+            if (orders == null) {
+                orders = new Orders();
+                application.setAttribute("orders", orders);
                 }
             
-            return movies;
+            return orders;
             } else {
                 return null;
             }
