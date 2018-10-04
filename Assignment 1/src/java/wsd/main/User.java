@@ -34,7 +34,7 @@ public class User implements Serializable {
     @XmlElement(name = "address")
     private String address;
     
-    Movies movies = new Movies();
+    Orders orders = new Orders();
 
     public User() {
     }
@@ -86,11 +86,11 @@ public class User implements Serializable {
         this.address = address;
     } 
     
-    public void addMovie(Movie movie) {
-        movies.addMovie(movie);
+    public void addMovie(Order order, Movie movie, int quantity) {
+        order.addMovie(movie, quantity);
     }
-    public Movies getMovies() {
-       return movies;
+    public Orders getOrders() {
+       return orders;
     }
 } 
 

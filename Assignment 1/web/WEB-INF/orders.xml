@@ -9,19 +9,11 @@ and open the template in the editor.
 <orders>
     <order>
         <ID>001</ID>
-        <movieTitle>Iron Man</movieTitle>
-        <movieGenre>Action</movieGenre>
-        <moviePrice>10.00</moviePrice>
-        <movieData>2008</movieData>
-        <copiesPurchased>1</copiesPurchased>
-    </order>
-    <order>
-        <ID>037</ID>
-        <movieTitle>The Godfather</movieTitle>
-        <movieGenre>Crime</movieGenre>
-        <moviePrice>20.00</moviePrice>
-        <movieData>1972</movieData>
-        <copiesPurchased>2</copiesPurchased>
-    </order>
-    
+        <movies>
+            <movie>
+            </movie>
+            <copiesPurchased>
+            </copiesPurchased>
+        </movies>
+    </order> 
 </orders>
