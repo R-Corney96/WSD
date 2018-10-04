@@ -86,8 +86,9 @@ public class User implements Serializable {
         this.address = address;
     } 
     
-    public void addMovie(Order order, Movie movie, int quantity) {
-        order.addMovie(movie, quantity);
+    public void addMovie(Order order, Movie movie, String quantity) {
+        MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
+        order.addMovie(movieOrdered);
     }
     public Orders getOrders() {
        return orders;

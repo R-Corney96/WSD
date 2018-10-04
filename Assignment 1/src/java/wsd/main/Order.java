@@ -28,18 +28,18 @@ public class Order implements Serializable {
     @XmlElement(name = "copies_purchased")
     private int copies_purchased;
     User user;
-    @XmlElement(name = "movies")
-    Movies movies = new Movies();
+    @XmlElement(name = "movies_ordered")
+    MoviesOrdered movies = new MoviesOrdered();
     @XmlElement (name = "payment_method")
     private String payment_method;
     @XmlElement (name = "status")
     private String status = "submitted";
     
-    public Order(User user, Movie movie, int quantity, String paymentMethod) {
+    public Order(User user, MovieOrdered movie, int quantity, String paymentMethod) {
         this.user = user;
         this.user_full_name = user.getName();
         this.user_name = user.getEmail();
-        addMovie(movie, quantity);
+        addMovie(movie);
         this.payment_method = paymentMethod;
         this.status = "submitted";
         
@@ -50,7 +50,7 @@ public class Order implements Serializable {
     public String getID() {
         return id;
     }
-    public Movies getMovies() {
+    public MoviesOrdered getMovies() {
         return movies;
     }
     public String getFullName() {
@@ -61,7 +61,7 @@ public class Order implements Serializable {
     }
     public String getSaleTotal() {
         double saleTotal = 0.0;
-        for (Movie movie : movies.getList()) {
+        for (MovieOrdered movie : movies.getList()) {
             saleTotal += Double.valueOf(movie.getPrice());
         }
         return String.valueOf(saleTotal);
@@ -74,8 +74,8 @@ public class Order implements Serializable {
         status = "cancelled";
     }
     
-    public void addMovie(Movie movie, int quantity) {
-        movie.setAvailable_copies(String.valueOf(quantity));
+    public void addMovie(MovieOrdered movie) {
+        //movie.setCopies_purchased(String.valueOf(quantity));
         movies.addMovie(movie);
     }
 }
