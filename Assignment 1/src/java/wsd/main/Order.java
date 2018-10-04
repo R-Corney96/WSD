@@ -23,13 +23,11 @@ public class Order implements Serializable {
     private String user_full_name;
     @XmlElement(name = "user_name")
     private String user_name;
-    @XmlElement(name = "IDint") 
-    private int IDint = 0 + (int) (Math.random() * ((999) + 1));
-    @XmlElement(name = "ID")
-    private String ID = String.format("%3d", IDint);
+    @XmlElement(name = "id")
+    private String id = String.format("%3d", 0 + (int) (Math.random() * ((999) + 1)));
     @XmlElement(name = "copies_purchased")
     private int copies_purchased;
-    User user = new User();
+    User user;
     @XmlElement(name = "movies")
     Movies movies = new Movies();
     @XmlElement (name = "payment_method")
@@ -50,7 +48,7 @@ public class Order implements Serializable {
         
     }
     public String getID() {
-        return ID;
+        return id;
     }
     public Movies getMovies() {
         return movies;

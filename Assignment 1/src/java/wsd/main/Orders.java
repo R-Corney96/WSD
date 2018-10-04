@@ -13,7 +13,7 @@ import javax.xml.bind.annotation.*;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="user")
+@XmlRootElement(name="orders")
 public class Orders implements Serializable {
     
     @XmlElement(name="order")
