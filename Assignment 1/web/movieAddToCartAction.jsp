@@ -26,10 +26,12 @@
             Movie movie = movies.getMovie(movie_id);
             
             
-            if(movie_id.equals("")){
-                out.print("Empty String");
+            if(movie == null){
+                out.print("Empty Movie");
             } else{
-            out.print(movie_id);
+            out.print(movie.getTitle() + " - ");
+            out.print(movie.getRelease_date() + " - $");
+            out.print(movie.getPrice());
             }
         %>
     </body>
