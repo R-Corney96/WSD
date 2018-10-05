@@ -59,6 +59,8 @@ xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
         </table>
     </xsl:template>
     
+    <xsl:template match="test:movie/test:release_date"/>
+    <xsl:template match="test:movie/test:movie_id"/>
     
     <xsl:template match="test:movie/test:title">
         <tr>
@@ -69,9 +71,6 @@ xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
         </tr>
     </xsl:template>
     
-    
-    <xsl:template match="test:movie/test:release_date"/>
-
     
     <xsl:template match="test:movie/test:genre">
         <tr>
@@ -100,7 +99,9 @@ xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
             <td class="purchase_button">
             <xsl:choose>
                 <xsl:when test="current() > 0">
-                    <button type="button" onclick="alert('This should do something')">BUY</button>
+                    <button type="button"> 
+                        <xsl:attribute name="onclick">location.href='movieAddToCartAction.jsp?movie=<xsl:value-of select="../test:movie_id"/>'</xsl:attribute>
+                        BUY</button>
                 </xsl:when>
                 <xsl:otherwise>
                     <button type="button" disabled="true">OUT OF STOCK</button>

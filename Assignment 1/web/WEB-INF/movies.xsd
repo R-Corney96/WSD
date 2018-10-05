@@ -6,13 +6,13 @@ and open the template in the editor.
 -->
 
 <xs:schema
- xmlns:xs="http://www.w3.org/2001/XMLSchema"
- targetNamespace="http://www.uts.edu.au/31284/wsd-movies"
- xmlns="http://www.uts.edu.au/31284/wsd-movies"
- elementFormDefault="qualified">
+    xmlns:xs="http://www.w3.org/2001/XMLSchema"
+    targetNamespace="http://www.uts.edu.au/31284/wsd-movies"
+    xmlns="http://www.uts.edu.au/31284/wsd-movies"
+    elementFormDefault="qualified">
 
     
-     <xs:simpleType name="releaseDate">
+    <xs:simpleType name="releaseDate">
         <xs:restriction base="xs:integer"> 
             <xs:minInclusive value="1900"/>
             <xs:maxInclusive value="3000"/>
@@ -20,12 +20,12 @@ and open the template in the editor.
     </xs:simpleType>
     
     <xs:simpleType name="genre">
-    <xs:restriction base="xs:string">
-        <xs:pattern value="[A-Z]{1}[a-zA-Z]*([ ][A-Z]{1}[a-zA-Z]+)*"/>
-    </xs:restriction>
-</xs:simpleType>
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}[a-zA-Z]*([ ][A-Z]{1}[a-zA-Z]+)*"/>
+        </xs:restriction>
+    </xs:simpleType>
 
-<xs:simpleType name="price">
+    <xs:simpleType name="price">
         <xs:restriction base="xs:double"> 
             <xs:minInclusive value="0.01"/>
         </xs:restriction>
@@ -44,15 +44,15 @@ and open the template in the editor.
                 <xs:element name = "movie" maxOccurs="unbounded"> 
                     <xs:complexType> 
                         <xs:sequence> 
-                         <xs:element name="title" type="xs:string" /> 
-                         <xs:element name="release_date" type="releaseDate" />
-                         <xs:element name="genre" type="genre" />
-                         <xs:element name="price" type="price" />
-                         <xs:element name="available_copies" type="available" />
+                            <xs:element name="title" type="xs:string" /> 
+                            <xs:element name="release_date" type="releaseDate" />
+                            <xs:element name="genre" type="genre" />
+                            <xs:element name="price" type="price" />
+                            <xs:element name="available_copies" type="available" />
                         </xs:sequence>
                     </xs:complexType>
                 </xs:element>
-             </xs:sequence>
+            </xs:sequence>
         </xs:complexType>
     </xs:element> 
 </xs:schema>

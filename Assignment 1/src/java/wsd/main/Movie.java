@@ -19,6 +19,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="movie")
 public class Movie implements Serializable {
+    @XmlElement(name = "movie_id")
+    private String movie_id;
     @XmlElement(name = "title")
     private String title;
     @XmlElement(name = "release_date")
@@ -40,7 +42,14 @@ public class Movie implements Serializable {
 
     public Movie() {
     }
-
+    public String getMovie_id(){
+        return movie_id;
+    }
+    
+    public void setMovie_id(String movie_id){
+        this.movie_id = movie_id;
+    }
+    
     public String getTitle() {
         return title;
     }

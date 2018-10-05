@@ -27,7 +27,16 @@ public class Movies implements Serializable {
     public void addMovie(Movie movie) {
         movieList.add(movie);
     }
-    public void removeUser(Movie movie) {
+    public void removeMovie(Movie movie) {
         movieList.remove(movie);
+    }
+    
+    public Movie getMovie(String movie_id){
+        for(Movie movie : movieList){
+            if(movie.getMovie_id().equals(movie_id)){
+                return movie;
+            }
+        }
+        return null;
     }
 }

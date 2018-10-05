@@ -12,17 +12,17 @@ import javax.xml.bind.*;
  *
  * @author Sebastian
  */
-public class MovieApplication implements Serializable {
+public class MovieRental implements Serializable {
     
     private String filePath;
     private Movies movies;
 
-    public MovieApplication(){
+    public MovieRental(){
         
     }
     
     //Constructor which takes a filepath and movies
-    public MovieApplication(String filePath, Movies movies) {
+    public MovieRental(String filePath, Movies movies) {
         this.filePath = filePath;
     }
 

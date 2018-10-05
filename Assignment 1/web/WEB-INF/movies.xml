@@ -6,13 +6,8 @@
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-movies movies.xsd"
 >
-
-    <!--
-    To change this license header, choose License Headers in Project Properties.
-    To change this template file, choose Tools | Templates
-    and open the template in the editor.
-    -->
     <movie>
+        <movie_id>001</movie_id>
         <title>Iron Man</title>
         <release_date>2008</release_date>
         <genre>Action</genre>
@@ -20,6 +15,7 @@
         <available_copies>3</available_copies>
     </movie>
     <movie>
+        <movie_id>701</movie_id>
         <title>Scott Pilgrim vs. the World</title>
         <release_date>2010</release_date>
         <genre>Comedy</genre>
@@ -27,6 +23,15 @@
         <available_copies>7</available_copies>
     </movie>
     <movie>
+        <movie_id>431</movie_id>
+        <title>The Avengers</title>
+        <release_date>2012</release_date>
+        <genre>Superhero</genre>
+        <price>15.00</price>
+        <available_copies>5</available_copies>
+    </movie>
+    <movie>
+        <movie_id>583</movie_id>
         <title>Shrek</title>
         <release_date>2001</release_date>
         <genre>Family</genre>
@@ -34,6 +39,7 @@
         <available_copies>0</available_copies>
     </movie>
     <movie>
+        <movie_id>727</movie_id>
         <title>The Godfather</title>
         <release_date>1972</release_date>
         <genre>Crime</genre>
@@ -41,6 +47,15 @@
         <available_copies>2</available_copies>
     </movie>
     <movie>
+        <movie_id>432</movie_id>
+        <title>The Avengers</title>
+        <release_date>1998</release_date>
+        <genre>Thriller</genre>
+        <price>5.00</price>
+        <available_copies>8</available_copies>
+    </movie>
+    <movie>
+        <movie_id>941</movie_id>
         <title>The Shawshank Redemption</title>
         <release_date>1994</release_date>
         <genre>Drama</genre>
@@ -48,10 +63,19 @@
         <available_copies>6</available_copies>
     </movie>
     <movie>
+        <movie_id>844</movie_id>
         <title>Batman - The Dark Knight</title>
         <release_date>2008</release_date>
         <genre>Action</genre>
         <price>15.00</price>
         <available_copies>4</available_copies>
+    </movie>
+    <movie>
+        <movie_id>626</movie_id>
+        <title>Lilo &#38; Stitch</title>
+        <release_date>2002</release_date>
+        <genre>Family</genre>
+        <price>10.00</price>
+        <available_copies>3</available_copies>
     </movie>
 </movies>
