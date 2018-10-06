@@ -27,12 +27,14 @@ public class MovieOrdered implements Serializable{
     private String release_date;
     @XmlElement(name = "copies_purchased")
     private String copies_purchased;
+    private String originalPrice;
     
     public MovieOrdered(String title, String genre, String price, String release_date, String copies_purchased) 
     {
         this.title = title;
         this.genre = genre;
         this.price = price;
+        this.originalPrice = price;
         this.release_date = release_date;
         this.copies_purchased = copies_purchased;
     }
@@ -63,6 +65,9 @@ public class MovieOrdered implements Serializable{
     
     public void setCopies_purchased(String copies) {
         copies_purchased = copies;
+    }
+    public void addPrice() {
+        price = String.valueOf(Double.parseDouble(price) + Double.parseDouble(originalPrice));
     }
     
 }

@@ -9,7 +9,6 @@ package wsd.main;
  *
  * @author robert
  */
-
 import java.beans.*;
 import java.io.*;
 import javax.xml.bind.annotation.*;
@@ -20,9 +19,9 @@ import java.util.*;
  * @author robert
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="user", namespace="http://www.uts.edu.au/31284/wsd-users")
+@XmlRootElement(name = "user", namespace = "http://www.uts.edu.au/31284/wsd-users")
 public class User implements Serializable {
-    
+
     @XmlElement(name = "email")
     private String email;
     @XmlElement(name = "name")
@@ -33,11 +32,12 @@ public class User implements Serializable {
     private String phone_number;
     @XmlElement(name = "address")
     private String address;
-    
+
     Orders orders = new Orders();
 
     public User() {
     }
+
     public User(String email, String name, String password, String phone_number, String address) {
         this.email = email;
         this.name = name;
@@ -84,15 +84,16 @@ public class User implements Serializable {
 
     public void setAddress(String address) {
         this.address = address;
-    } 
-    
+    }
+
     public void addMovie(Movie movie, String quantity) {
         int amountOfOrders = 0;
         Order currentOrder = null;
+        int available = Integer.parseInt(movie.getAvailable_copies());
         for (Order order : orders.getList()) {
             if (order != null) {
                 amountOfOrders++;
-            } 
+            }
             if (order != null && order.getStatus().equals("submitted")) {
                 currentOrder = order;
             }
@@ -100,14 +101,14 @@ public class User implements Serializable {
         MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
         if (amountOfOrders == 0) {
             currentOrder = new Order(this.name, this.email, movieOrdered);
-            orders.addOrder(currentOrder);
         } else {
-        currentOrder.addMovie(movieOrdered);
-        orders.addOrder(currentOrder);
+            currentOrder.addMovie(movieOrdered);
         }
+        orders.addOrder(currentOrder);
+        //movie.setAvailable_copies(String.valueOf(available - 1));
     }
-    public Orders getOrders() {
-       return orders;
-    }
-} 
 
+    public Orders getOrders() {
+        return orders;
+    }
+}

@@ -73,6 +73,16 @@ public class Order implements Serializable {
         }
         return String.valueOf(saleTotal);
     }
+    public String getQuantityTotal(Movie movie) {
+        String copies = "0";
+        for (MovieOrdered movie2 : movies.getList()) {
+            if (movie.getTitle().equals(movie2.getTitle())) {
+                copies = movie2.getCopies_purchased();
+            }
+        }
+        return copies;
+    }
+    
     public String getStatus() {
         return status;
     }
@@ -83,6 +93,24 @@ public class Order implements Serializable {
     
     public void addMovie(MovieOrdered movie) {
         //movie.setCopies_purchased(String.valueOf(quantity));
+        boolean exists = false;
+        for (MovieOrdered movie2 : movies.getList()) {
+            if (movie.getTitle().equals(movie2.getTitle())) {
+                int originalValue = Integer.parseInt(movie2.getCopies_purchased());
+                double originalPrice = Double.parseDouble(movie2.getPrice());
+                movie2.setCopies_purchased(String.valueOf(originalValue + 1));
+                movie2.addPrice();
+                exists = true;
+            }
+        }
+        if (!exists)
         movies.addMovie(movie);
+    }
+    public void removeMovie(MovieOrdered movie) {
+        for (MovieOrdered movier : movies.getList()) {
+            if(movier.getTitle().equals(movie.getTitle())) {
+                movies.removeMovie(movier);
+            }
+        }
     }
 }

@@ -46,7 +46,8 @@
                     }
                 }
                 out.println("Added " + movie.getTitle() + " to order ID " + currentOrder.getID());
-                out.println("Current total price = " + currentOrder.getSaleTotal());
+                out.println(" Current total price = " + currentOrder.getSaleTotal());
+                out.println(" You have a total of " + currentOrder.getQuantityTotal(movie) + " of this movie in your cart");
                 }
                 else {
             out.print(movie.getTitle() + " - ");
