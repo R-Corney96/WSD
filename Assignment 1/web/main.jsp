@@ -17,6 +17,7 @@
                 <td>
                         <tr><a href="account.jsp">My Account</a></tr>
                         <tr><a href="logoutAction.jsp">Logout</a></tr>
+                        <tr><a href="index.jsp">Movies</a></tr>
                 </td>
             </table>
         </div>

@@ -16,6 +16,7 @@
         <title>Moving Item to Cart</title>
     </head>
     <body>
+        <a href="index.jsp">Home</a>
         <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
         <jsp:useBean id="movieRental" class="wsd.main.MovieRental" scope="application">
             <jsp:setProperty name="movieRental" property="filePath" value="<%=filePath%>"/>

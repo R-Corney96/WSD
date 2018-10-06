@@ -17,21 +17,5 @@ and open the template in the editor.
         <password>lolpassword</password>
         <phone_number>0498443689</phone_number>
         <address>161 broadway street</address>
-        <orders>
-            <order>
-                <ID>001</ID>
-                <movies>
-                    <movie>
-                        <title>Iron Man</title>
-                        <release_date>2008</release_date>
-                        <genre>Action</genre>
-                        <price>10.00</price>
-                        <purhcased_copies>1</purhcased_copies>
-                    </movie>
-                </movies>
-                <payment_method>PayPal</payment_method>
-                <status>submitted</status>
-            </order>
-        </orders>
     </user>
 </users>

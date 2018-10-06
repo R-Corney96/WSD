@@ -7,7 +7,7 @@
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html charsetEncoding=UTF-8" pageEncoding="UTF-8" import="wsd.main.*"%>
 <%
-User user = (User) session.getAttribute("user");
+    User user = (User) session.getAttribute("user");
 %>
 <!DOCTYPE html>
 <html>
@@ -19,12 +19,19 @@ User user = (User) session.getAttribute("user");
         <div class="menu">
             <table>
                 <td>
-                        <tr><a href="register.jsp">Register</a></tr>
-                        <tr><a href="login.jsp">Login</a></tr>
+                <tr><a href="register.jsp">Register</a></tr>
+                <tr><a href="login.jsp">Login</a></tr>
+                <%
+                    if (user != null) {
+                %>
+                <tr><a href="main.jsp">History</a></tr>
+                <%
+                    }
+                %>
                 </td>
             </table>
         </div>
-        
+
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
