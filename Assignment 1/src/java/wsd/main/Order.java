@@ -35,15 +35,22 @@ public class Order implements Serializable {
     @XmlElement (name = "status")
     private String status = "submitted";
     
-    public Order(User user, MovieOrdered movie, int quantity, String paymentMethod) {
-        this.user = user;
-        this.user_full_name = user.getName();
-        this.user_name = user.getEmail();
+    public Order(String fullName, String email, MovieOrdered movie, String paymentMethod) {
+        this.user_full_name = fullName;
+        this.user_name = email;
         addMovie(movie);
         this.payment_method = paymentMethod;
         this.status = "submitted";
         
     }
+    public Order(String fullName, String email, MovieOrdered movie) {
+        this.user_full_name = fullName;
+        this.user_name = email;
+        addMovie(movie);
+        this.payment_method = "Payment Method: N/A";
+        this.status = "submitted";
+    }
+    
     public Order() {
         
     }

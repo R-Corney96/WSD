@@ -86,9 +86,25 @@ public class User implements Serializable {
         this.address = address;
     } 
     
-    public void addMovie(Order order, Movie movie, String quantity) {
+    public void addMovie(Movie movie, String quantity) {
+        int amountOfOrders = 0;
+        Order currentOrder = null;
+        for (Order order : orders.getList()) {
+            if (order != null) {
+                amountOfOrders++;
+            } 
+            if (order != null && order.getStatus().equals("submitted")) {
+                currentOrder = order;
+            }
+        }
         MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
-        order.addMovie(movieOrdered);
+        if (amountOfOrders == 0) {
+            currentOrder = new Order(this.name, this.email, movieOrdered);
+            orders.addOrder(currentOrder);
+        } else {
+        currentOrder.addMovie(movieOrdered);
+        orders.addOrder(currentOrder);
+        }
     }
     public Orders getOrders() {
        return orders;
