@@ -21,24 +21,24 @@
     %>
     <body>
         <h1>My Account</h1>
-                <form action='accountAction.jsp' method='post' name='update'>
-        <table style='border:none'>
-            <tr>
-                <td>Email</td>
-                <td><input type='email' name='email' value="<%=user.getEmail()%>"></td>
-            </tr>
-            <tr>
-                <td>Full name</td>
-                <td><input type='text' name='name' value="<%=user.getName()%>"></td>
-            </tr>
-            <tr>
-                <td>Password</td>
-                <td><input type='password' name='password' value="<%=user.getPassword()%>"></td>
-            </tr>
-            <tr>
-                <td><input type='submit' value='Save'></td>
-            </tr>
-        </table>
+        <form action='accountAction.jsp' method='post' name='update'>
+            <table style='border:none'>
+                <tr>
+                    <td>Email</td>
+                    <td><input type='email' name='email' value="<%=user.getEmail()%>"></td>
+                </tr>
+                <tr>
+                    <td>Full name</td>
+                    <td><input type='text' name='name' value="<%=user.getName()%>"></td>
+                </tr>
+                <tr>
+                    <td>Password</td>
+                    <td><input type='password' name='password' value="<%=user.getPassword()%>"></td>
+                </tr>
+                <tr>
+                    <td><input type='submit' value='Save'></td>
+                </tr>
+            </table>
         </form>
         <p>Return to the <a href="main.jsp">main page</a>.</p>
     </body>
