@@ -52,7 +52,7 @@ public class MovieOrdered implements Serializable{
     }
 
     public String getPrice() {
-        return price;
+        return originalPrice;
     }
 
     public String getRelease_date() {
