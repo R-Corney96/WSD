@@ -115,7 +115,7 @@ public class Order implements Serializable {
         }
     }
 
-    public void removeMovie(MovieOrdered movie) {
+    public void removeMovie(MovieOrdered movie){
         for (MovieOrdered movier : movies.getList()) {
             if (movier.getTitle().equals(movie.getTitle())) {
                 movies.removeMovie(movier);

@@ -28,7 +28,7 @@ public class MoviesOrdered implements Serializable {
         movieList.add(movie);
     }
 
-    public void removeMovie(MovieOrdered movie) {
+    public void removeMovie(MovieOrdered movie){
         movieList.remove(movie);
     }
 }

@@ -43,7 +43,7 @@ public class MovieOrdered implements Serializable{
         
     }
     
-    String getTitle() {
+    public String getTitle() {
         return title;
     }
 

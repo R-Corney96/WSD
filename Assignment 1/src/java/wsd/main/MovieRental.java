@@ -38,7 +38,7 @@ public class MovieRental implements Serializable {
     }
     
     //This marshalls this object from this class and updates the xml.
-    public void updateXML(Movies movies, String filePath) throws Exception {
+    public void updateXML(Movies movies, String filePath) throws Exception{
         this.movies = movies;
         this.filePath = filePath;
         JAXBContext jc = JAXBContext.newInstance(Movies.class);
