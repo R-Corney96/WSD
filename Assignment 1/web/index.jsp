@@ -21,6 +21,7 @@
                 <td>
                 <tr><a href="register.jsp">Register</a></tr>
                 <tr><a href="login.jsp">Login</a></tr>
+                <tr><a href="checkout.jsp">Checkout</a></tr>
                 <%
                     if (user != null) {
                 %>

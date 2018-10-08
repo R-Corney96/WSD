@@ -16,9 +16,9 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="order")
+@XmlRootElement(name = "order")
 public class Order implements Serializable {
-    
+
     @XmlElement(name = "user_full_name")
     private String user_full_name;
     @XmlElement(name = "user_name")
@@ -30,19 +30,20 @@ public class Order implements Serializable {
     User user;
     @XmlElement(name = "movies_ordered")
     MoviesOrdered movies = new MoviesOrdered();
-    @XmlElement (name = "payment_method")
+    @XmlElement(name = "payment_method")
     private String payment_method;
-    @XmlElement (name = "status")
+    @XmlElement(name = "status")
     private String status = "submitted";
-    
+
     public Order(String fullName, String email, MovieOrdered movie, String paymentMethod) {
         this.user_full_name = fullName;
         this.user_name = email;
         addMovie(movie);
         this.payment_method = paymentMethod;
         this.status = "submitted";
-        
+
     }
+
     public Order(String fullName, String email, MovieOrdered movie) {
         this.user_full_name = fullName;
         this.user_name = email;
@@ -50,22 +51,27 @@ public class Order implements Serializable {
         this.payment_method = "Payment Method: N/A";
         this.status = "submitted";
     }
-    
+
     public Order() {
-        
+
     }
+
     public String getID() {
         return id;
     }
+
     public MoviesOrdered getMovies() {
         return movies;
     }
+
     public String getFullName() {
         return user.getName();
     }
+
     public String getUserName() {
         return user.getEmail();
     }
+
     public String getSaleTotal() {
         double saleTotal = 0.0;
         for (MovieOrdered movie : movies.getList()) {
@@ -73,6 +79,7 @@ public class Order implements Serializable {
         }
         return String.valueOf(saleTotal);
     }
+
     public String getQuantityTotal(Movie movie) {
         String copies = "0";
         for (MovieOrdered movie2 : movies.getList()) {
@@ -82,15 +89,15 @@ public class Order implements Serializable {
         }
         return copies;
     }
-    
+
     public String getStatus() {
         return status;
     }
-    
+
     public void cancelStatus() {
         status = "cancelled";
     }
-    
+
     public void addMovie(MovieOrdered movie) {
         //movie.setCopies_purchased(String.valueOf(quantity));
         boolean exists = false;
@@ -103,12 +110,14 @@ public class Order implements Serializable {
                 exists = true;
             }
         }
-        if (!exists)
-        movies.addMovie(movie);
+        if (!exists) {
+            movies.addMovie(movie);
+        }
     }
+
     public void removeMovie(MovieOrdered movie) {
         for (MovieOrdered movier : movies.getList()) {
-            if(movier.getTitle().equals(movie.getTitle())) {
+            if (movier.getTitle().equals(movie.getTitle())) {
                 movies.removeMovie(movier);
             }
         }
