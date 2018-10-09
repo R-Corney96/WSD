@@ -52,26 +52,15 @@ public class OrderService {
     }
     @GET
     @Produces("application/xml")
-    @Path("/orders/{email}")
-    public List<Order> getUser (@PathParam("email") String email) throws JAXBException, IOException {
+    @Path("/users/{email}")
+    public User getUser (@PathParam("email") String email) throws JAXBException, IOException {
         synchronized (application) {
-             List<Order> orders = new ArrayList<Order>();
             for (User user : getUsers().getList()) {
-                if (user.getOrders().getList() != null)
-                    for (Order order : user.getOrders().getList()) {
-                        if (order.getUserName().equals(email)) {
-                            orders.add(order);
-                        }
-                    }
-            }
-            if (orders != null) {
-                application.setAttribute("orderEmail", orders);
-                
-            
-            return orders;
-            } else {
-                return null;
-            }
+                if (user.getEmail().equals(email)) {
+                    application.setAttribute("user", user);
+                    return user;
+                }
+            } return null;
         }
     }
     @GET
