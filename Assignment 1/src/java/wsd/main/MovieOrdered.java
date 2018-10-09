@@ -15,11 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-<<<<<<< HEAD
 @XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
-=======
-@XmlRootElement(name="movie_ordered", namespace="http://www.uts.edu.au/31284/wsd-history")
->>>>>>> 6dc4e6a2a97a86bcbd85c933bfecb9b8eba560d8
+
 public class MovieOrdered implements Serializable{
     @XmlElement(name = "title")
     private String title;

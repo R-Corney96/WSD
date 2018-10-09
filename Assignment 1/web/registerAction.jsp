@@ -43,12 +43,11 @@
         
         <%
         UsersHistory usersHistory = new UsersHistory(email, name);
-<<<<<<< HEAD
+
         //historyManager.updateXML(history, secondFilePath);
-=======
+
         history.addUser(usersHistory);
         historyManager.updateXML(history, secondFilePath);
->>>>>>> 6dc4e6a2a97a86bcbd85c933bfecb9b8eba560d8
         
         %>
         <body> 
