@@ -10,9 +10,9 @@ and open the template in the editor.
 <!-- 
 JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
-<users xmlns="http://www.uts.edu.au/31284/wsd-users"
+<history xmlns="http://www.uts.edu.au/31284/wsd-history"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <user>
+    <users_history>
         <name>Philip Aubert</name>
         <email>philipaubert123@hotmail.com</email>
         
@@ -72,5 +72,5 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 <total_cost>30.00</total_cost>
             </order>
         </orders>
-    </user>
-</users>
+    </users_history>
+</history>

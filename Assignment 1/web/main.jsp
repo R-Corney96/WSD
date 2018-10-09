@@ -46,7 +46,7 @@
                             <head>
                                 <link rel="stylesheet" href="../style.css"/>
                                 <style>
-                                    .users {  border: 0px solid transparent; width: 500; border-spacing: 0px 0;}
+                                    .history {  border: 0px solid transparent; width: 500; border-spacing: 0px 0;}
                                     .tableline { border-top: 3px solid #ddd; }
                                     .darktableline { border-top: 1px solid #222; }
 
@@ -72,8 +72,8 @@
                     </xsl:template>
 
 
-                    <xsl:template match="history:users">
-                        <table class="users">
+                    <xsl:template match="history:history">
+                        <table class="history">
                             <thead>
                                 <tr>
                                     <th>Order History</th>
@@ -86,7 +86,7 @@
                     </xsl:template>
 
 
-                    <xsl:template match="history:user">
+                    <xsl:template match="history:users_history">
                         <xsl:choose>
                             <xsl:when test="history:email = '<%=user.getEmail()%>'">
                                 <xsl:apply-templates/>
