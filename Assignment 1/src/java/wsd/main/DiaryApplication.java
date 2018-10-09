@@ -20,7 +20,6 @@ import javax.xml.bind.*;
 public class DiaryApplication implements Serializable {
     private String filePath;
     private Users users;
-
     public String getFilePath() {
         return filePath;
     }
@@ -38,10 +37,16 @@ public class DiaryApplication implements Serializable {
     public Users getUsers() {
         return users;
     }
+    
+
+    
+    
 
     public void setUsers(Users users) {
         this.users = users;
     }
+    
+
     public void updateXML(Users users, String filePath) throws Exception {
         this.users = users;
         this.filePath = filePath;
@@ -52,4 +57,5 @@ public class DiaryApplication implements Serializable {
         m.marshal(users, fout);
         fout.close();
     }
+
 }

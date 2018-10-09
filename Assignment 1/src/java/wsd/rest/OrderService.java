@@ -30,7 +30,7 @@ public class OrderService {
             DiaryApplication orderApp = (DiaryApplication) application.getAttribute("orderApp");
             if (orderApp == null) {
                 orderApp = new DiaryApplication();
-                orderApp.setFilePath(application.getRealPath("WEB-INF/users.xml"));
+                orderApp.setFilePath(application.getRealPath("WEB-INF/history.xml"));
                 application.setAttribute("orderApp", orderApp);
             }
             return orderApp;

@@ -10,7 +10,7 @@ and open the template in the editor.
 <!-- 
 JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
-<users xmlns="http://www.uts.edu.au/31284/wsd-history"
+<users xmlns="http://www.uts.edu.au/31284/wsd-users"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <user>
         <name>Philip Aubert</name>
@@ -70,32 +70,6 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 </movies>
                 <payment_method>Credit</payment_method>
                 <total_cost>30.00</total_cost>
-            </order>
-        </orders>
-    </user>
-    
-    <user>
-        <name></name>
-        <email></email>
-        
-        <orders>
-            <order id="###">
-                <status>submitted/cancelled</status>
-        
-                <movies>
-                    <movie>
-                        <movie_id></movie_id>
-                        <title></title>
-                        <release_date></release_date>
-                        <genre></genre>
-                        <price></price>
-                        <copies_purchased></copies_purchased>
-                    </movie>
-                </movies>
-                
-                <total_cost></total_cost>
-                <payment_method></payment_method>
-                
             </order>
         </orders>
     </user>

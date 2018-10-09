@@ -4,6 +4,9 @@
     Author     : robert
 --%>
 
+<%@page import="wsd.main.MovieOrdered"%>
+<%@page import="wsd.main.Order"%>
+<%@page import="java.util.ArrayList"%>
 <%@page import="wsd.main.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
@@ -25,7 +28,7 @@
                 </td>
             </table>
         </div>
-        
+
         <div>
             <h1><%=user.getEmail()%> History</h1>
 
@@ -46,12 +49,12 @@
                                     .users {  border: 0px solid transparent; width: 500; border-spacing: 0px 0;}
                                     .tableline { border-top: 3px solid #ddd; }
                                     .darktableline { border-top: 1px solid #222; }
-                                    
+
                                     .order { background-color: #e1e1e1; }
                                     .order_info { background-color: #f7f7f7; }
                                     .order_id { padding: 5px 0px 0px 5px; border-top: 1px solid #222; }
                                     .status {padding: 5px 5px 0px 0px; border-top: 1px solid #222; }
-                                    
+
                                     .title { font-weight: bold; display: inline-block; padding: 5px 0px 0px 5px; }
                                     .release_date { font-style: italic; display: inline-block; }
                                     .genre { font-style: italic; font-size: 0.75em; padding: 1px 0px 0px 5px; }
@@ -63,7 +66,7 @@
                                 </style>
                             </head>
                             <body>
-                            <xsl:apply-templates/>
+                                                            <xsl:apply-templates/>
                             </body>
                         </html>
                     </xsl:template>

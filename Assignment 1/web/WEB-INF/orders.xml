@@ -9,11 +9,12 @@ and open the template in the editor.
 <orders>
     <order>
         <ID>001</ID>
-        <movies>
-            <movie>
-            </movie>
-            <copiesPurchased>
-            </copiesPurchased>
-        </movies>
+        <moviesOrdered>
+            <movieOrdered>
+            </movieOrdered>
+            
+        </moviesOrdered>
+        <payment_method></payment_method>
+        <total_cost></total_cost>
     </order> 
 </orders>
