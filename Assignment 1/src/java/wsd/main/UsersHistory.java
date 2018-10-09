@@ -89,4 +89,12 @@ public class UsersHistory implements Serializable {
         orders.addOrder(currentOrder);
         //movie.setAvailable_copies(String.valueOf(available - 1));
     }
+    
+    public boolean containsOrder(String id){
+        return orders.containsOrder(id);
+    }
+    
+    public void cancelOrder(String id){
+        orders.cancelOrder(id);
+    }
 }
