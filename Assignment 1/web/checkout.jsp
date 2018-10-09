@@ -28,12 +28,24 @@
         %>
 
         <% String filePath = application.getRealPath("WEB-INF/history.xml");%>
+        <% String historyFilePath = application.getRealPath("WEB-INF/history.xml"); %>
+    <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
+    <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
+    </jsp:useBean>
         <jsp:useBean id="moviesordered" class="wsd.main.MoviesOrdered" scope="application">
         </jsp:useBean>
         <table>
         <%
             User user = (User) session.getAttribute("user");
-            ArrayList<Order> orders = user.getOrders().getList();
+            History history = historyManager.getHistory();
+            UsersHistory currentUser = null;
+            for (UsersHistory usersHistory : history.getList()) {
+                if (usersHistory.getEmail().equals(user.getEmail()))
+                {
+                    currentUser = usersHistory;
+                }
+            }
+            ArrayList<Order> orders = currentUser.getOrders().getList();
                 int i=0;
                 Order t = orders.get(0);
                 ArrayList<MovieOrdered> movies = t.getMovies().getList();

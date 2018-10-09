@@ -69,19 +69,19 @@ public class UsersHistory implements Serializable {
     }
     
     public void addMovie(Movie movie, String quantity) {
-        int amountOfOrders = 0;
+        boolean isSubmitted = false;
         Order currentOrder = null;
         int available = Integer.parseInt(movie.getAvailable_copies());
         for (Order order : orders.getList()) {
-            if (order != null) {
-                amountOfOrders++;
-            }
-            if (order != null && order.getStatus().equals("submitted")) {
+            if (order.getStatus().equals("submitted")) {
                 currentOrder = order;
+                isSubmitted = true;
+            } else {
+                isSubmitted = false;
             }
         }
         MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
-        if (amountOfOrders == 0) {
+        if (!isSubmitted) {
             String randomNumber = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
             currentOrder = new Order(randomNumber, this.name, this.email, movieOrdered);
         } else {
