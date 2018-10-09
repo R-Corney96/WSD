@@ -15,7 +15,7 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
     <users_history>      
         <orders>
             <order>
-                <id> 000</id>
+                <id>000</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -33,7 +33,7 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 <total_cost>999.99</total_cost>
             </order>
             <order>
-                <id> 001</id>
+                <id>001</id>
                 <status>submitted</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -60,7 +60,7 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
             </order>
             
             <order>
-                <id> 002</id>
+                <id>002</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>

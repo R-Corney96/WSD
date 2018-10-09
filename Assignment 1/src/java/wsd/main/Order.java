@@ -102,6 +102,10 @@ public class Order implements Serializable {
     public void addMovie(MovieOrdered movie) {
         //movie.setCopies_purchased(String.valueOf(quantity));
         boolean exists = false;
+        if (movies == null) {
+            movies = new MoviesOrdered();
+            movies.addMovie(movie);
+        } 
         for (MovieOrdered movie2 : movies.getList()) {
             if (movie.getTitle().equals(movie2.getTitle())) {
                 int originalValue = Integer.parseInt(movie2.getCopies_purchased());
@@ -113,6 +117,7 @@ public class Order implements Serializable {
         }
         if (!exists) {
             movies.addMovie(movie);
+        
         }
     }
 
