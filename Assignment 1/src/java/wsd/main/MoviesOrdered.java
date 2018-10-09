@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name = "movies_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
 public class MoviesOrdered implements Serializable {
 
-    @XmlElement(name = "movie_ordered")
+    @XmlElement(name = "movie_ordered", namespace="http://www.uts.edu.au/31284/wsd-history")
     private ArrayList<MovieOrdered> movieList = new ArrayList<MovieOrdered>();
     
     MovieRental movieRental;

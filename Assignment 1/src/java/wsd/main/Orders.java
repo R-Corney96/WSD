@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.*;
 
 public class Orders implements Serializable {
     
-    @XmlElement(name="order")
+    @XmlElement(name="order", namespace="http://www.uts.edu.au/31284/wsd-history")
     private ArrayList<Order> orderList = new ArrayList<Order>();
     
     public ArrayList<Order> getList() {

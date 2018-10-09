@@ -19,7 +19,7 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="history", namespace="http://www.uts.edu.au/31284/wsd-history")
 public class History {
-    @XmlElement(name="users_history")
+    @XmlElement(name="users_history", namespace="http://www.uts.edu.au/31284/wsd-history")
     private ArrayList<UsersHistory> usersHistory = new ArrayList<UsersHistory>();   
  
     public ArrayList<UsersHistory> getList() {

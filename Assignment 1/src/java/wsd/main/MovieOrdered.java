@@ -18,15 +18,15 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
 
 public class MovieOrdered implements Serializable{
-    @XmlElement(name = "title")
+    @XmlElement(name = "title", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String title;
-    @XmlElement(name = "genre")
+    @XmlElement(name = "genre", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String genre;
-    @XmlElement(name = "price")
+    @XmlElement(name = "price", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String price;
-    @XmlElement(name = "release_date")
+    @XmlElement(name = "release_date", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String release_date;
-    @XmlElement(name = "copies_purchased")
+    @XmlElement(name = "copies_purchased", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String copies_purchased;
     //private String newPrice;
     

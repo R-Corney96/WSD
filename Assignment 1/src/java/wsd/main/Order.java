@@ -18,25 +18,22 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 
 @XmlRootElement(name = "order", namespace = "http://www.uts.edu.au/31284/wsd-history")
-
-
 public class Order implements Serializable {
 
-    //@XmlElement(name = "name")
-    //private String user_full_name;
-    //@XmlElement(name = "email")
-    //private String user_name;
-    @XmlElement(name = "id")
+    @XmlElement(name = "id", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String id;
-    @XmlElement(name = "copies_purchased")
-    private String copies_purchased;
-    User user;
-    @XmlElement(name = "movies_ordered")
-    MoviesOrdered movies;
-    @XmlElement(name = "payment_method")
-    private String payment_method;
-    @XmlElement(name = "status")
+    @XmlElement(name = "status", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String status = "submitted";
+    
+    @XmlElement(name = "copies_purchased", namespace="http://www.uts.edu.au/31284/wsd-history")
+    private String copies_purchased;
+    
+    @XmlElement(name = "movies_ordered", namespace="http://www.uts.edu.au/31284/wsd-history")
+    MoviesOrdered movies;
+    
+    @XmlElement(name = "payment_method", namespace="http://www.uts.edu.au/31284/wsd-history")
+    private String payment_method;
+
 
     public Order(/*String fullName, String email, */MovieOrdered movie, String paymentMethod) {
         /*this.user_full_name = fullName;

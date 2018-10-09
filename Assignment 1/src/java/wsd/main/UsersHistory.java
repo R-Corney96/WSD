@@ -22,11 +22,11 @@ import java.util.*;
 @XmlRootElement(name = "users_history", namespace = "http://www.uts.edu.au/31284/wsd-history")
 public class UsersHistory implements Serializable {
 
-    @XmlElement(name = "email")
+    @XmlElement(name = "email", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String email;
-    @XmlElement(name = "name")
+    @XmlElement(name = "name", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String name;
-    @XmlElement(name = "orders")
+    @XmlElement(name = "orders", namespace="http://www.uts.edu.au/31284/wsd-history")
     Orders orders = new Orders();
 
     public UsersHistory() {
