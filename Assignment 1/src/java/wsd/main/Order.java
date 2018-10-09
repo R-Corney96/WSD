@@ -109,7 +109,7 @@ public class Order implements Serializable {
         for (MovieOrdered movie2 : movies.getList()) {
             if (movie.getTitle().equals(movie2.getTitle())) {
                 int originalValue = Integer.parseInt(movie2.getCopies_purchased());
-                double originalPrice = Double.parseDouble(movie2.getPrice());
+                double originalPrice = Double.parseDouble(movie2.getNewPrice());
                 movie2.setCopies_purchased(String.valueOf(originalValue + 1));
                 movie2.addPrice();
                 exists = true;

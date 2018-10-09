@@ -63,6 +63,13 @@ public class UsersHistory implements Serializable {
     public Orders getOrders() {
         return orders;
     }
+    public void addOrders(Orders orders2) {
+        for (Order order2: orders2.getList()) {
+            if (!containsOrder(order2.getID())) {
+            orders.addOrder(order2);
+            }
+        }
+    }
 
     public void setOrders(Orders orders) {
         this.orders = orders;

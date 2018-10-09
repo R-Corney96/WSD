@@ -41,8 +41,9 @@
             if (user != null) {
                 usersHistory = history.getUserHistory(user.getEmail());
                 usersHistory.addMovie(movie, "1");
-                
+                historyManager.updateXML(history, historyFilePath);
                 orders = usersHistory.getOrders();
+                usersHistory.addOrders(orders);
             }
 
             if (movie == null) {
