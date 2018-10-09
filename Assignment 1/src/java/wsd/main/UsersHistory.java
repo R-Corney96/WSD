@@ -38,6 +38,11 @@ public class UsersHistory implements Serializable {
         this.name = name;
         this.orders = orders;
     }
+    
+    public UsersHistory(String email, String name) {
+        this.email = email;
+        this.name = name;
+    }
 
     public String getEmail() {
         return email;

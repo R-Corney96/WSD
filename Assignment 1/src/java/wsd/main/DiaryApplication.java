@@ -20,6 +20,7 @@ import javax.xml.bind.*;
 public class DiaryApplication implements Serializable {
     private String filePath;
     private Users users;
+    private History history;
     public String getFilePath() {
         return filePath;
     }
@@ -37,6 +38,9 @@ public class DiaryApplication implements Serializable {
     public Users getUsers() {
         return users;
     }
+    public History history() {
+        return history;
+    }
     
 
     
@@ -45,12 +49,25 @@ public class DiaryApplication implements Serializable {
     public void setUsers(Users users) {
         this.users = users;
     }
+    public void setHistory(History history) {
+        this.history = history;
+    }
     
 
     public void updateXML(Users users, String filePath) throws Exception {
         this.users = users;
         this.filePath = filePath;
         JAXBContext jc = JAXBContext.newInstance(Users.class);
+        Marshaller m = jc.createMarshaller();
+        m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
+        FileOutputStream fout = new FileOutputStream(filePath);
+        m.marshal(users, fout);
+        fout.close();
+    }
+    public void updateXML(History history, String filePath) throws Exception {
+        this.history = history;
+        this.filePath = filePath;
+        JAXBContext jc = JAXBContext.newInstance(History.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         FileOutputStream fout = new FileOutputStream(filePath);

@@ -33,9 +33,12 @@ public class History {
     }
     public UsersHistory getUserHistory(String email) {
         // For each user in the list...
-        for (UsersHistory usersHistory : usersHistory) {
-            if (usersHistory.getEmail().equals(email))
-                return usersHistory; // Login correct. Return this user.
+        if (usersHistory.get(0) != null) {
+        for (UsersHistory users : usersHistory) {
+            if (users.getEmail() != null) {
+            if (users.getEmail().equals(email))
+                return users; // Login correct. Return this user.
+        }}
         }
         return null; // Login incorrect. Return null.
     }
