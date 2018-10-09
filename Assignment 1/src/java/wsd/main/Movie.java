@@ -17,7 +17,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="movie")
+@XmlRootElement(name="movie", namespace="http://www.uts.edu.au/31284/wsd-movies")
 public class Movie implements Serializable {
     @XmlElement(name = "movie_id")
     private String movie_id;

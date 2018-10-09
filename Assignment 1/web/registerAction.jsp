@@ -39,7 +39,7 @@
         users.addUser(user);
         diaryApp.updateXML(users, filePath);
         UsersHistory usersHistory = new UsersHistory(email, name);
-        historyManager.updateXML(history, secondFilePath);
+        //historyManager.updateXML(history, secondFilePath);
         
         %>
         <body> 
