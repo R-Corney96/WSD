@@ -6,9 +6,14 @@
 
 <%@page import="wsd.main.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-        <% String filePath = application.getRealPath("WEB-INF/users.xml"); %>
+    <% String usersFilePath = application.getRealPath("WEB-INF/users.xml"); %>
     <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
-    <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
+    <jsp:setProperty name="diaryApp" property="filePath" value="<%=usersFilePath%>"/>
+    </jsp:useBean>
+    
+    <% String historyFilePath = application.getRealPath("WEB-INF/history.xml"); %>
+    <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
+    <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
     </jsp:useBean>
 <!DOCTYPE html>
 <html>
@@ -34,7 +39,13 @@
     
     users.addUser(user);
     diaryApp.setUsers(users);
-    diaryApp.updateXML(users, filePath);
+    diaryApp.updateXML(users, usersFilePath);
+    
+    
+    History history = historyManager.getHistory();
+    history.UpdateUserName(email, name);
+    historyManager.updateXML(history, historyFilePath);
+    
     session.setAttribute("user", user);
     response.sendRedirect("account.jsp");
 %>

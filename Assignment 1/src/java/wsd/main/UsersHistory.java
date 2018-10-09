@@ -62,8 +62,8 @@ public class UsersHistory implements Serializable {
     public void setOrders(Orders orders) {
         this.orders = orders;
     }
-
-    /*public void addMovie(Movie movie, String quantity) {
+    
+    public void addMovie(Movie movie, String quantity) {
         int amountOfOrders = 0;
         Order currentOrder = null;
         int available = Integer.parseInt(movie.getAvailable_copies());
@@ -75,12 +75,13 @@ public class UsersHistory implements Serializable {
                 currentOrder = order;
             }
         }
-        MovieOrdered movieOrdered = new MovieOrdered(movie.getMovie_id(),movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
+        MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
         if (amountOfOrders == 0) {
             currentOrder = new Order(this.name, this.email, movieOrdered);
         } else {
             currentOrder.addMovie(movieOrdered);
         }
         orders.addOrder(currentOrder);
-    }*/
+        //movie.setAvailable_copies(String.valueOf(available - 1));
+    }
 }

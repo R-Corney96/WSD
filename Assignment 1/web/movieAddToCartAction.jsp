@@ -17,24 +17,32 @@
     </head>
     <body>
         <a href="index.jsp">Home</a>
-        <% String filePath = application.getRealPath("WEB-INF/movies.xml");%>
+        <% String moviesFilePath = application.getRealPath("WEB-INF/movies.xml");%>
         <jsp:useBean id="movieRental" class="wsd.main.MovieRental" scope="application">
-            <jsp:setProperty name="movieRental" property="filePath" value="<%=filePath%>"/>
+            <jsp:setProperty name="movieRental" property="filePath" value="<%=moviesFilePath%>"/>
+        </jsp:useBean>
+        
+        <% String historyFilePath = application.getRealPath("WEB-INF/history.xml");%>
+        <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
+            <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
         </jsp:useBean>
 
         <%
             User user = (User) session.getAttribute("user");
-
+            
             Movies movies = movieRental.getMovies();
-
+            History history = historyManager.getHistory();
+            UsersHistory usersHistory;
             String movie_id = request.getParameter("movie");
 
             Movie movie = movies.getMovie(movie_id);
             Orders orders = null;
             Order currentOrder = null;
             if (user != null) {
-                user.addMovie(movie, "1");
-                orders = user.getOrders();
+                usersHistory = history.getUserHistory(user.getEmail());
+                usersHistory.addMovie(movie, "1");
+                
+                orders = usersHistory.getOrders();
             }
 
             if (movie == null) {

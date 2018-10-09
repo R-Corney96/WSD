@@ -26,7 +26,7 @@ public class HistoryManager {
     }
 
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
-        JAXBContext jc = JAXBContext.newInstance(Users.class);
+        JAXBContext jc = JAXBContext.newInstance(History.class);
         Unmarshaller u = jc.createUnmarshaller();
         this.filePath = filePath;
         // Now unmarshal the object from the file
@@ -42,7 +42,7 @@ public class HistoryManager {
     public void updateXML(History history, String filePath) throws Exception {
         this.history = history;
         this.filePath = filePath;
-        JAXBContext jc = JAXBContext.newInstance(Users.class);
+        JAXBContext jc = JAXBContext.newInstance(History.class);
         Marshaller m = jc.createMarshaller();
         m.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
         FileOutputStream fout = new FileOutputStream(filePath);
