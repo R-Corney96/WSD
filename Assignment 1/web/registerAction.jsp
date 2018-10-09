@@ -38,7 +38,12 @@
         User user = new User(email,name,password,phone_number,address);
         users.addUser(user);
         diaryApp.updateXML(users, filePath);
+        
+        %>
+        
+        <%
         UsersHistory usersHistory = new UsersHistory(email, name);
+        history.addUser(usersHistory);
         historyManager.updateXML(history, secondFilePath);
         
         %>

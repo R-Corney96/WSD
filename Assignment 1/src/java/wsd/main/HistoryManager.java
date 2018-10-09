@@ -19,8 +19,9 @@ import javax.xml.bind.Unmarshaller;
  * @author Sebastian
  */
 public class HistoryManager {
-        private String filePath;
+    private String filePath;
     private History history;
+    
     public String getFilePath() {
         return filePath;
     }
