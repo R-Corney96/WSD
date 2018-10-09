@@ -12,10 +12,12 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
 <history xmlns="http://www.uts.edu.au/31284/wsd-history"
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <users_history>      
+    <users_history>
+        <name>Philip Aubert</name>
+        <email>philipaubert123@hotmail.com</email>
         <orders>
             <order>
-                <id> 000</id>
+                <id>000</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -27,13 +29,11 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                         <copies_purchased>1</copies_purchased>
                     </movie_ordered>
                 </movies_ordered>
-                <name>Philip Aubert</name>
-                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>999.99</total_cost>
             </order>
             <order>
-                <id> 001</id>
+                <id>001</id>
                 <status>submitted</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -53,14 +53,12 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                         <copies_purchased>2</copies_purchased>
                     </movie_ordered>
                 </movies_ordered>
-                <name>Philip Aubert</name>
-                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>1019.99</total_cost>
             </order>
             
             <order>
-                <id> 002</id>
+                <id>002</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -72,8 +70,6 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                         <copies_purchased>3</copies_purchased>
                     </movie_ordered>
                 </movies_ordered>
-                <name>Philip Aubert</name>
-                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>30.00</total_cost>
             </order>
