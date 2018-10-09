@@ -76,7 +76,7 @@ public class Order implements Serializable {
     public String getSaleTotal() {
         double saleTotal = 0.0;
         for (MovieOrdered movie : movies.getList()) {
-            saleTotal += Double.valueOf(movie.getPrice());
+            saleTotal += Double.valueOf(movie.getNewPrice());
         }
         return String.valueOf(saleTotal);
     }
@@ -122,11 +122,13 @@ public class Order implements Serializable {
     }
 
     public void removeMovie(MovieOrdered movie){
+        MovieOrdered toRemove = null;
         for (MovieOrdered movier : movies.getList()) {
             if (movier.getTitle().equals(movie.getTitle())) {
-                movies.removeMovie(movier);
+                toRemove = movier;
             }
         }
+        movies.removeMovie(toRemove);
     }
     
     public void setPaymentMethod(String paymentMethod) {

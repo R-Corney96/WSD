@@ -39,11 +39,22 @@
             Orders orders = null;
             Order currentOrder = null;
             if (user != null) {
+                
+                usersHistory = history.getUserHistory(user.getEmail());
+                if (usersHistory != null) {
                 usersHistory = history.getUserHistory(user.getEmail());
                 usersHistory.addMovie(movie, "1");
                 historyManager.updateXML(history, historyFilePath);
                 orders = usersHistory.getOrders();
-                usersHistory.addOrders(orders);
+                //usersHistory.addOrders(orders);
+                } else {
+                    usersHistory = new UsersHistory(user.getEmail(), user.getName());
+                    usersHistory.addMovie(movie,"0");
+                    history.addUser(usersHistory);
+                    historyManager.updateXML(history, historyFilePath);
+                    orders = usersHistory.getOrders();
+                    
+                }
             }
 
             if (movie == null) {
