@@ -70,6 +70,12 @@ public class UsersHistory implements Serializable {
             }
         }
     }
+    public void addOrder(Order order2) {
+            if (!containsOrder(order2.getID())) {
+            orders.addOrder(order2);
+            }
+        }
+    
 
     public void setOrders(Orders orders) {
         this.orders = orders;
@@ -90,7 +96,7 @@ public class UsersHistory implements Serializable {
         MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
         if (!isSubmitted) {
             String randomNumber = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
-            currentOrder = new Order(randomNumber, this.name, this.email, movieOrdered);
+            currentOrder = new Order(randomNumber, /*this.name, this.email,*/ movieOrdered);
         } else {
             currentOrder.addMovie(movieOrdered);
         }

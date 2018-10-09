@@ -34,24 +34,36 @@
             History history = historyManager.getHistory();
             UsersHistory usersHistory;
             String movie_id = request.getParameter("movie");
-
+            
             Movie movie = movies.getMovie(movie_id);
-            Orders orders = null;
+            Orders orders = null; 
+            int availablePre = Integer.parseInt(movie.getAvailable_copies());
+                String availablePost = String.valueOf(availablePre - 1);
             Order currentOrder = null;
             if (user != null) {
                 
                 usersHistory = history.getUserHistory(user.getEmail());
                 if (usersHistory != null) {
-                usersHistory = history.getUserHistory(user.getEmail());
-                usersHistory.addMovie(movie, "1");
+                //usersHistory = history.getUserHistory(user.getEmail());
+               
+                if (Integer.parseInt(availablePost) >= 0) {
+                    usersHistory.addMovie(movie, "1");
+                    movie.setAvailable_copies(availablePost);
+                }
+                
                 historyManager.updateXML(history, historyFilePath);
+                //movieRental.updateXML(movies, moviesFilePath);
                 orders = usersHistory.getOrders();
                 //usersHistory.addOrders(orders);
                 } else {
                     usersHistory = new UsersHistory(user.getEmail(), user.getName());
-                    usersHistory.addMovie(movie,"0");
+                    if (Integer.parseInt(availablePost) >= 0) {
+                    usersHistory.addMovie(movie, "1");
+                    movie.setAvailable_copies(availablePost);
+                }
                     history.addUser(usersHistory);
                     historyManager.updateXML(history, historyFilePath);
+                    //movieRental.updateXML(movies, moviesFilePath);
                     orders = usersHistory.getOrders();
                     
                 }

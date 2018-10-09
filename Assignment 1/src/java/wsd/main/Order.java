@@ -22,10 +22,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 public class Order implements Serializable {
 
-    @XmlElement(name = "name")
-    private String user_full_name;
-    @XmlElement(name = "email")
-    private String user_name;
+    //@XmlElement(name = "name")
+    //private String user_full_name;
+    //@XmlElement(name = "email")
+    //private String user_name;
     @XmlElement(name = "id")
     private String id;
     @XmlElement(name = "copies_purchased")
@@ -38,19 +38,19 @@ public class Order implements Serializable {
     @XmlElement(name = "status")
     private String status = "submitted";
 
-    public Order(String fullName, String email, MovieOrdered movie, String paymentMethod) {
-        this.user_full_name = fullName;
-        this.user_name = email;
+    public Order(/*String fullName, String email, */MovieOrdered movie, String paymentMethod) {
+        /*this.user_full_name = fullName;
+        this.user_name = email;*/
         addMovie(movie);
         this.payment_method = paymentMethod;
         this.status = "submitted";
 
     }
 
-    public Order(String id, String fullName, String email, MovieOrdered movie) {
+    public Order(String id, /*String fullName, String email,*/ MovieOrdered movie) {
         this.id = id;
-        this.user_full_name = fullName;
-        this.user_name = email;
+        /*this.user_full_name = fullName;
+        this.user_name = email;*/
         addMovie(movie);
         this.payment_method = "Payment Method: N/A";
         this.status = "submitted";
@@ -68,13 +68,13 @@ public class Order implements Serializable {
         return movies;
     }
 
-    public String getFullName() {
+    /*public String getFullName() {
         return user.getName();
     }
 
     public String getUserName() {
         return user.getEmail();
-    }
+    }*/
 
     public String getSaleTotal() {
         double saleTotal = 0.0;
@@ -107,15 +107,17 @@ public class Order implements Serializable {
         boolean exists = false;
         if (movies == null) {
             movies = new MoviesOrdered();
-            movies.addMovie(movie);
-        } 
+            //movies.addMovie(movie);
+            //sexists = true;
+        } else {
+        
         for (MovieOrdered movie2 : movies.getList()) {
             if (movie.getTitle().equals(movie2.getTitle())) {
                 int originalValue = Integer.parseInt(movie2.getCopies_purchased());
                 double originalPrice = Double.parseDouble(movie2.getNewPrice());
                 movie2.setCopies_purchased(String.valueOf(originalValue + 1));
-                movie2.addPrice();
                 exists = true;
+             }
             }
         }
         if (!exists) {
