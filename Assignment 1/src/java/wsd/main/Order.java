@@ -16,7 +16,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name = "order")
+@XmlRootElement(name = "order", namespace="http://www.uts.edu.au/31284/wsd-history")
 public class Order implements Serializable {
 
     @XmlElement(name = "name")
