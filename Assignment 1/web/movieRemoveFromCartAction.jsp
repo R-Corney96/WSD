@@ -39,10 +39,9 @@
                 if (t.getStatus().equals("submitted")) {
                     ArrayList<MovieOrdered> movies = t.getMovies().getList();
                     MovieOrdered movie = movies.get(a);
-                    t.removeMovie(toRemove);
+                    t.removeMovie(movie);
                 }
                 
-                t.removeMovie(toRemove);
             }
         %>
         <h1>Movie Removed</h1>
