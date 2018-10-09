@@ -17,7 +17,7 @@ import javax.xml.bind.*;
  *
  * @author robert
  */
-public class DiaryApplication implements Serializable {
+public class UsersManager implements Serializable {
     private String filePath;
     private Users users;
     private History history;

@@ -23,21 +23,21 @@
         <%if(tos != null){
       String filePath = application.getRealPath("WEB-INF/users.xml");
       String secondFilePath = application.getRealPath("WEB-INF/history.xml");%>
-    <jsp:useBean id="diaryApp" class="wsd.main.DiaryApplication" scope="application">
-    <jsp:setProperty name="diaryApp" property="filePath" value="<%=filePath%>"/>
+    <jsp:useBean id="usersManager" class="wsd.main.UsersManager" scope="application">
+    <jsp:setProperty name="usersManager" property="filePath" value="<%=filePath%>"/>
     </jsp:useBean>
       <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
           <jsp:setProperty name = "historyManager" property="filePath" value="<%=secondFilePath%>"/>
       </jsp:useBean>
     <%
-    Users users = diaryApp.getUsers();
+    Users users = usersManager.getUsers();
     History history = historyManager.getHistory();
     email = users.test(email);
     
     if(email != null){
         User user = new User(email,name,password,phone_number,address);
         users.addUser(user);
-        diaryApp.updateXML(users, filePath);
+        usersManager.updateXML(users, filePath);
         
         %>
         
