@@ -11,63 +11,66 @@ and open the template in the editor.
 JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
 <history xmlns="http://www.uts.edu.au/31284/wsd-history"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
-    <users_history>
-        <name>Philip Aubert</name>
-        <email>philipaubert123@hotmail.com</email>
-        
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+    <users_history>      
         <orders>
             <order id="000">
                 <status>cancelled</status>
-                <movies>
-                    <movie>
+                <movies_ordered>
+                    <movie_ordered>
                         <movie_id>583</movie_id>
                         <title>Shrek</title>
-                        <release_date>2001</release_date>
                         <genre>Family</genre>
                         <price>999.99</price>
+                        <release_date>2001</release_date>
                         <copies_purchased>1</copies_purchased>
-                    </movie>
-                </movies>
+                    </movie_ordered>
+                </movies_ordered>
+                <name>Philip Aubert</name>
+                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>999.99</total_cost>
             </order>
             <order id="001">
                 <status>submitted</status>
-                <movies>
-                    <movie>
+                <movies_ordered>
+                    <movie_ordered>
                         <movie_id>583</movie_id>
                         <title>Shrek</title>
-                        <release_date>2001</release_date>
                         <genre>Family</genre>
                         <price>999.99</price>
+                        <release_date>2001</release_date>
                         <copies_purchased>1</copies_purchased>
-                    </movie>
-                    <movie>
+                    </movie_ordered>
+                    <movie_ordered>
                         <movie_id>626</movie_id>
                         <title>Lilo &#38; Stitch</title>
-                        <release_date>2002</release_date>
                         <genre>Family</genre>
                         <price>10.00</price>
+                        <release_date>2002</release_date>
                         <copies_purchased>2</copies_purchased>
-                    </movie>
-                </movies>
+                    </movie_ordered>
+                </movies_ordered>
+                <name>Philip Aubert</name>
+                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>1019.99</total_cost>
             </order>
             
             <order id="002">
                 <status>cancelled</status>
-                <movies>
-                    <movie>
+                <movies_ordered>
+                    <movie_ordered>
                         <movie_id>626</movie_id>
                         <title>Lilo &#38; Stitch</title>
-                        <release_date>2002</release_date>
                         <genre>Family</genre>
                         <price>10.00</price>
+                        <release_date>2002</release_date>
                         <copies_purchased>3</copies_purchased>
-                    </movie>
-                </movies>
+                    </movie_ordered>
+                </movies_ordered>
+                <name>Philip Aubert</name>
+                <email>philipaubert123@hotmail.com</email>
                 <payment_method>Credit</payment_method>
                 <total_cost>30.00</total_cost>
             </order>

@@ -18,60 +18,65 @@ import java.util.ArrayList;
 import java.util.List;
 import wsd.main.*;
 
-@Path("/orderApp")
+@Path("/historyManager")
 public class OrderService {
 
     @Context
     private ServletContext application;
-    
-    private DiaryApplication getOrderApp() throws JAXBException, IOException {
-        
+
+    private HistoryManager getHistoryManager() throws JAXBException, IOException {
+
         synchronized (application) {
-            DiaryApplication orderApp = (DiaryApplication) application.getAttribute("orderApp");
-            if (orderApp == null) {
-                orderApp = new DiaryApplication();
-                orderApp.setFilePath(application.getRealPath("WEB-INF/history.xml"));
-                application.setAttribute("orderApp", orderApp);
+            HistoryManager historyManager = (HistoryManager) application.getAttribute("historyManager");
+            if (historyManager == null) {
+                historyManager = new HistoryManager();
+                historyManager.setFilePath(application.getRealPath("WEB-INF/history.xml"));
+                application.setAttribute("historyManager", historyManager);
             }
-            return orderApp;
+            return historyManager;
         }
     }
-    @Path("/users")
+
+    @Path("/history")
     @GET
     @Produces("application/xml")
-    public Users getUsers() throws JAXBException, IOException {
+    public History getHistory() throws JAXBException, IOException {
         synchronized (application) {
-            Users users = getOrderApp().getUsers();
-            if (users == null) {
-                users = new Users();
-                application.setAttribute("users", users);
+            History history = getHistoryManager().getHistory();
+            if (history == null) {
+                history = new History();
+                application.setAttribute("history", history);
             }
-            return users;
+            return history;
+        }
+
+    }
+
+    @GET
+    @Produces("application/xml")
+    @Path("/history/{email}")
+    public UsersHistory getUser(@PathParam("email") String email) throws JAXBException, IOException {
+        synchronized (application) {
+            UsersHistory usersHistory = null;
+            if (getHistory().getUserHistory(email) != null) {
+                usersHistory = getHistory().getUserHistory(email);
+                //pplication.setAttribute("usersHistory", usersHistory);
+                //return usersHistory;
+            }application.setAttribute("usersHistory", usersHistory);
+            return usersHistory;
         }
         
     }
-    @GET
-    @Produces("application/xml")
-    @Path("/users/{email}")
-    public User getUser (@PathParam("email") String email) throws JAXBException, IOException {
-        synchronized (application) {
-            for (User user : getUsers().getList()) {
-                if (user.getEmail().equals(email)) {
-                    application.setAttribute("user", user);
-                    return user;
-                }
-            } return null;
-        }
-    }
+
     @GET
     @Produces("application/xml")
     @Path("/orders")
     public List<Orders> getOrders() throws JAXBException, IOException {
         synchronized(application) {
             List<Orders> orders = new ArrayList<Orders>();
-            for (User user : getUsers().getList()) {
-                if (user.getOrders().getList() != null)
-                    orders.add(user.getOrders());
+            for (UsersHistory usersHistory : getHistory().getList()) {
+                if (usersHistory.getOrders().getList() != null)
+                    orders.add(usersHistory.getOrders());
             }
             if (orders != null) {
                 application.setAttribute("orders", orders);
@@ -85,15 +90,15 @@ public class OrderService {
         }
     }
     
-      @GET
+    /*@GET
     @Produces("application/xml")
     @Path("/{status}")
     public List<Order> getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException {
         synchronized(application) {
             List<Order> orders = new ArrayList<Order>();
-            for (User user : getUsers().getList()) {
-                if (user.getOrders().getList() != null)
-                    for (Order order : user.getOrders().getList()) {
+            for (UsersHistory usersHistory : getHistory().getList()) {
+                if (usersHistory.getOrders().getList() != null)
+                    for (Order order : usersHistory.getOrders().getList()) {
                         if (order.getStatus().equals(status)) {
                             orders.add(order);
                         }
@@ -109,31 +114,35 @@ public class OrderService {
             }
             
         }
-    }
+    }*/
   
-     @GET
+    @GET
     @Produces("application/xml")
-    @Path("/orders/{id}")
-    public Order getOrderID(@PathParam("id") String id) throws JAXBException, IOException {
+    @Path("/{idOrStatus}")
+    public List<Order> getOrderIDorStatus(@PathParam("idOrStatus") String id) throws JAXBException, IOException {
         synchronized(application) {
-            Order order = null;
-            for (User user : getUsers().getList()) {
-                if (user.getOrders().getList() != null)
-                    for (Order order2 : user.getOrders().getList()) {
-                        if (order2.getID().equals(id)) {
-                            order = order2;
+            List<Order> orders = new ArrayList<Order>();
+            for (UsersHistory usersHistory : getHistory().getList()) {
+                if (usersHistory.getOrders().getList() != null)
+                    for (Order order : usersHistory.getOrders().getList()) {
+                        if (order.getID().equals(idOrStatus)) {
+                            orders.add(order);
+                        }
+                        if (order.getStatus().equals(idOrStatus)) {
+                            orders.add(order);
                         }
                     }
             }
-            if (order != null) {
-                application.setAttribute("orderID", order);
+            if (orders != null) {
+                application.setAttribute("orderID", orders);
                 
             
-            return order;
+            return orders;
             } else {
                 return null;
             }
             
         }
-    }
+    }  
 }
+

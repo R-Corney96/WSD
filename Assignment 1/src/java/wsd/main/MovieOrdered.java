@@ -15,7 +15,7 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="movie_ordered")
+@XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
 public class MovieOrdered implements Serializable{
     @XmlElement(name = "title")
     private String title;
@@ -27,14 +27,14 @@ public class MovieOrdered implements Serializable{
     private String release_date;
     @XmlElement(name = "copies_purchased")
     private String copies_purchased;
-    private String originalPrice;
+    private String newPrice;
     
     public MovieOrdered(String title, String genre, String price, String release_date, String copies_purchased) 
     {
         this.title = title;
         this.genre = genre;
         this.price = price;
-        this.originalPrice = price;
+        this.newPrice = price;
         this.release_date = release_date;
         this.copies_purchased = copies_purchased;
     }
@@ -52,7 +52,11 @@ public class MovieOrdered implements Serializable{
     }
 
     public String getPrice() {
-        return originalPrice;
+        return price;
+    }
+    
+    public String getNewPrice() {
+        return newPrice;
     }
 
     public String getRelease_date() {
@@ -67,7 +71,7 @@ public class MovieOrdered implements Serializable{
         copies_purchased = copies;
     }
     public void addPrice() {
-        price = String.valueOf(Double.parseDouble(price) + Double.parseDouble(originalPrice));
+        newPrice = String.valueOf(Double.parseDouble(price) + Double.parseDouble(newPrice));
     }
     
 }

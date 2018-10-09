@@ -19,17 +19,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "order")
 public class Order implements Serializable {
 
-    @XmlElement(name = "user_full_name")
+    @XmlElement(name = "name")
     private String user_full_name;
-    @XmlElement(name = "user_name")
+    @XmlElement(name = "email")
     private String user_name;
     @XmlElement(name = "id")
     private String id = String.format("%3d", 0 + (int) (Math.random() * ((999) + 1)));
     @XmlElement(name = "copies_purchased")
-    private int copies_purchased;
+    private String copies_purchased;
     User user;
     @XmlElement(name = "movies_ordered")
-    MoviesOrdered movies = new MoviesOrdered();
+    MoviesOrdered movies;
     @XmlElement(name = "payment_method")
     private String payment_method;
     @XmlElement(name = "status")
@@ -121,5 +121,9 @@ public class Order implements Serializable {
                 movies.removeMovie(movier);
             }
         }
+    }
+    
+    public void setPaymentMethod(String paymentMethod) {
+        payment_method = paymentMethod;
     }
 }
