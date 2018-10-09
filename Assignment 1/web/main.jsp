@@ -65,9 +65,7 @@
                                     .blank_row { height: 30px !important; }
                                 </style>
                             </head>
-                            <body>
-                                                            <xsl:apply-templates/>
-                            </body>
+                            <body> <xsl:apply-templates/> </body>
                         </html>
                     </xsl:template>
 
@@ -166,7 +164,7 @@
                                     <td/>
                                     <td class="cancel_button">
                                         <button type="button"> 
-
+                                            <xsl:attribute name="onclick">location.href='cancelOrder.jsp?order=<xsl:value-of select="../@id"/>'</xsl:attribute>
                                             CANCEL</button>
                                     </td>
                                 </tr>

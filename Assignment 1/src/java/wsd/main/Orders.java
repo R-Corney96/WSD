@@ -27,4 +27,25 @@ public class Orders implements Serializable {
         orderList.add(order);
     }
     
+    public void cancelOrder(String id){
+        for(Order order : orderList){
+            if(order.getID().equals(id)){
+                order.cancelStatus();
+                break;
+            }
+        }
+    }
+    
+    public boolean containsOrder(String id){
+        return (getOrder(id) != null);
+    }
+    
+    public Order getOrder(String id){
+        for(Order order : orderList){
+            if(order.getID().equals(id)){
+                return order;
+            }
+        }
+        return null;
+    }
 }
