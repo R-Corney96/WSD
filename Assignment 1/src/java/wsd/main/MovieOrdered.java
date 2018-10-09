@@ -15,10 +15,8 @@ import javax.xml.bind.annotation.XmlRootElement;
  * @author user
  */
 @XmlAccessorType(XmlAccessType.FIELD)
-@XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-users")
+@XmlRootElement(name="movie_ordered")
 public class MovieOrdered implements Serializable{
-    @XmlElement(name = "movie_id")
-    private String movie_id;
     @XmlElement(name = "title")
     private String title;
     @XmlElement(name = "genre")
@@ -29,25 +27,20 @@ public class MovieOrdered implements Serializable{
     private String release_date;
     @XmlElement(name = "copies_purchased")
     private String copies_purchased;
-    private String newPrice;
+    private String originalPrice;
     
-    public MovieOrdered(String movie_id, String title, String genre, String price, String release_date, String copies_purchased) 
+    public MovieOrdered(String title, String genre, String price, String release_date, String copies_purchased) 
     {
-        this.movie_id = movie_id;
         this.title = title;
         this.genre = genre;
         this.price = price;
-        this.newPrice = price;
+        this.originalPrice = price;
         this.release_date = release_date;
         this.copies_purchased = copies_purchased;
     }
     
     public MovieOrdered() {
         
-    }
-    
-    public String getMovie_id() {
-        return movie_id;
     }
     
     public String getTitle() {
@@ -59,10 +52,7 @@ public class MovieOrdered implements Serializable{
     }
 
     public String getPrice() {
-        return price;
-    }
-    public String getNewPrice() {
-        return newPrice;
+        return originalPrice;
     }
 
     public String getRelease_date() {
@@ -77,7 +67,7 @@ public class MovieOrdered implements Serializable{
         copies_purchased = copies;
     }
     public void addPrice() {
-        newPrice = String.valueOf(Double.parseDouble(newPrice) + Double.parseDouble(price));
+        price = String.valueOf(Double.parseDouble(price) + Double.parseDouble(originalPrice));
     }
     
 }
