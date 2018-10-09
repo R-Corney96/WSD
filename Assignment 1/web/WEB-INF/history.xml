@@ -14,7 +14,8 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <users_history>      
         <orders>
-            <order id="000">
+            <order>
+                <id> 000</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -31,7 +32,8 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 <payment_method>Credit</payment_method>
                 <total_cost>999.99</total_cost>
             </order>
-            <order id="001">
+            <order>
+                <id> 001</id>
                 <status>submitted</status>
                 <movies_ordered>
                     <movie_ordered>
@@ -57,7 +59,8 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 <total_cost>1019.99</total_cost>
             </order>
             
-            <order id="002">
+            <order>
+                <id> 002</id>
                 <status>cancelled</status>
                 <movies_ordered>
                     <movie_ordered>

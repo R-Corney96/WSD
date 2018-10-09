@@ -24,7 +24,7 @@ public class Order implements Serializable {
     @XmlElement(name = "email")
     private String user_name;
     @XmlElement(name = "id")
-    private String id = String.format("%3d", 0 + (int) (Math.random() * ((999) + 1)));
+    private String id;
     @XmlElement(name = "copies_purchased")
     private String copies_purchased;
     User user;
@@ -44,7 +44,8 @@ public class Order implements Serializable {
 
     }
 
-    public Order(String fullName, String email, MovieOrdered movie) {
+    public Order(String id, String fullName, String email, MovieOrdered movie) {
+        this.id = id;
         this.user_full_name = fullName;
         this.user_name = email;
         addMovie(movie);
