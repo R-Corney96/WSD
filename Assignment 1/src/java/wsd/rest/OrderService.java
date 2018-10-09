@@ -89,37 +89,11 @@ public class OrderService {
             
         }
     }
-    
-    /*@GET
-    @Produces("application/xml")
-    @Path("/{status}")
-    public List<Order> getOrderStatus(@PathParam("status") String status) throws JAXBException, IOException {
-        synchronized(application) {
-            List<Order> orders = new ArrayList<Order>();
-            for (UsersHistory usersHistory : getHistory().getList()) {
-                if (usersHistory.getOrders().getList() != null)
-                    for (Order order : usersHistory.getOrders().getList()) {
-                        if (order.getStatus().equals(status)) {
-                            orders.add(order);
-                        }
-                    }
-            }
-            if (orders != null) {
-                application.setAttribute("orderStatus", orders);
-                
-            
-            return orders;
-            } else {
-                return null;
-            }
-            
-        }
-    }*/
   
     @GET
     @Produces("application/xml")
     @Path("/{idOrStatus}")
-    public List<Order> getOrderIDorStatus(@PathParam("idOrStatus") String id) throws JAXBException, IOException {
+    public List<Order> getOrderIDorStatus(@PathParam("idOrStatus") String idOrStatus) throws JAXBException, IOException {
         synchronized(application) {
             List<Order> orders = new ArrayList<Order>();
             for (UsersHistory usersHistory : getHistory().getList()) {
