@@ -98,7 +98,7 @@
 
                     <xsl:template match="history:order">
                         <tr class="order">
-                            <td class="order_id">Order <xsl:value-of select="@id" /></td>
+                            <td class="order_id">Order <xsl:value-of select="history:id" /></td>
                         <xsl:variable name="lowercase" select="'abcdefghijklmnopqrstuvwxyz'" />
                         <xsl:variable name="uppercase" select="'ABCDEFGHIJKLMNOPQRSTUVWXYZ'" />
                         <td class="status">
@@ -109,20 +109,26 @@
                         <xsl:apply-templates/>
                     </xsl:template>
 
+                    <xsl:template match="history:id"/>
                     <xsl:template match="history:status"/>
-
-                    <xsl:template match="history:movie">
+                    
+                    <xsl:template match="history:movies_ordered">
                         <xsl:apply-templates/>
                     </xsl:template>
-
-                    <xsl:template match="history:movie/history:release_date"/>
-                    <xsl:template match="history:movie/history:movie_id"/>
-                    <xsl:template match="history:movie/history:price"/>
+                    <xsl:template match="history:movie_ordered">
+                        <xsl:apply-templates/>
+                    </xsl:template>
+                                
+                                
+                    
+                    <xsl:template match="history:release_date"/>
+                    <xsl:template match="history:movie_id"/>
+                    <xsl:template match="history:price"/>
                     <xsl:template match="history:email"/>
                     <xsl:template match="history:name"/>
                     <xsl:template match="history:payment_method"/>
 
-                    <xsl:template match="history:movie/history:title">
+                    <xsl:template match="history:title">
                         <tr  class="order_info">
                             <td class="tableline">
                                 <div class="title"><xsl:apply-templates/></div>
@@ -133,13 +139,13 @@
                     </xsl:template>
 
 
-                    <xsl:template match="history:movie/history:genre">
+                    <xsl:template match="history:genre">
                         <tr class="order_info">
                             <td class="genre" colspan="2"> Genre: <xsl:apply-templates/> </td>
                         </tr>
                     </xsl:template>
 
-                    <xsl:template match="history:movie/history:copies_purchased">
+                    <xsl:template match="history:copies_purchased">
                         <tr class="order_info">
                             <td class="copies_purchased"> QTY: <xsl:apply-templates/> </td>
                         <td class="price">
@@ -164,7 +170,7 @@
                                     <td/>
                                     <td class="cancel_button">
                                         <button type="button"> 
-                                            <xsl:attribute name="onclick">location.href='cancelOrder.jsp?order=<xsl:value-of select="../@id"/>'</xsl:attribute>
+                                            <xsl:attribute name="onclick">location.href='cancelOrder.jsp?order=<xsl:value-of select="../history:id"/>'</xsl:attribute>
                                             CANCEL</button>
                                     </td>
                                 </tr>
