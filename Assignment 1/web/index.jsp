@@ -47,14 +47,26 @@
             </table>
         </form>
 
+        <%
+            String error = (String) session.getAttribute("error");
+            if (error != null) {
+                %><p class="error"><%=error%></p><%
+                            session.setAttribute("error", null);
+                        }
+                        String success = (String) session.getAttribute("success");
+                        if (success != null) {
+                %><p class="success"><%=success%></p><%
+                            session.setAttribute("success", null);
+                        }
+            %>
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
             <%
-                String queryError =(String) session.getAttribute("queryError");
-                if(queryError!=null){
-                    %><p><%=queryError%></p><%
-                        session.setAttribute("queryError", null);
-                }
+                String queryError = (String) session.getAttribute("queryError");
+                if (queryError != null) {
+            %><p><%=queryError%></p><%
+                            session.setAttribute("queryError", null);
+                        }
             %>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>

@@ -18,6 +18,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
 
 public class MovieOrdered implements Serializable{
+    @XmlElement(name = "movie_id", namespace="http://www.uts.edu.au/31284/wsd-history")
+    private String movie_id;
     @XmlElement(name = "title", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String title;
     @XmlElement(name = "genre", namespace="http://www.uts.edu.au/31284/wsd-history")
@@ -30,8 +32,9 @@ public class MovieOrdered implements Serializable{
     private String copies_purchased;
     //private String newPrice;
     
-    public MovieOrdered(String title, String genre, String price, String release_date, String copies_purchased) 
+    public MovieOrdered(String movie_id, String title, String genre, String price, String release_date, String copies_purchased) 
     {
+        this.movie_id = movie_id;
         this.title = title;
         this.genre = genre;
         this.price = price;
@@ -42,6 +45,10 @@ public class MovieOrdered implements Serializable{
     
     public MovieOrdered() {
         
+    }
+    
+    public String getMovie_id(){
+        return movie_id;
     }
     
     public String getTitle() {

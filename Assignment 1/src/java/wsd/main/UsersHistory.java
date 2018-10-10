@@ -93,7 +93,7 @@ public class UsersHistory implements Serializable {
                 isSubmitted = false;
             }
         }
-        MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
+        MovieOrdered movieOrdered = new MovieOrdered(movie.getMovie_id(), movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
         if (!isSubmitted) {
             String randomNumber = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
             currentOrder = new Order(randomNumber, /*this.name, this.email,*/ movieOrdered);
