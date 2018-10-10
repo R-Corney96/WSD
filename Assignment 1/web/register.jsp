@@ -21,8 +21,9 @@
                 <td><a href="login.jsp">Login</a></td>
             </tr>
         </table>
-        
+
         <h1>Register</h1>
+        <!-- This form takes users inputs in order to add the user to the XML -->
         <form action='registerAction.jsp' method='post' name='register'>
             <table style='border:none'>
                 <tr>
