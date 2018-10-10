@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>login_Action_Page</title>
+        <title>Logging in...</title>
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");

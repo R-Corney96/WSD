@@ -5,6 +5,8 @@
 --%>
 <%@page import="wsd.main.*"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="style.css">
+
 <!DOCTYPE html>
 <html>
     <head>

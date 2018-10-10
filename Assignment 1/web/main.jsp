@@ -9,28 +9,28 @@
 <%@page import="java.util.ArrayList"%>
 <%@page import="wsd.main.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="style.css">
+
 <!DOCTYPE html>
 <html>
     <head>
         <% User user = (User) session.getAttribute("user");%>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Main Page</title>
+        <title>Main</title>
     </head>
     <body>
+        <!-- Main Header Menu for Website Directory -->
+        <table class="menu">
+            <tr>
+                <td><a href="account.jsp">Edit Account</a></td>
+                <td><a href="index.jsp">Movies</a></td>
+                <td><a href="logoutAction.jsp">Logout</a></td>
+            </tr>
+        </table>
 
         <div>
-            <table>
-                <td>
-                <tr><a href="account.jsp">My Account</a></tr>
-                <tr><a href="logoutAction.jsp">Logout</a></tr>
-                <tr><a href="index.jsp">Movies</a></tr>
-                </td>
-            </table>
-        </div>
-
-        <div>
-            <h1><%=user.getEmail()%> History</h1>
+            <h1><%=user.getName()%>'s History</h1>
 
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
@@ -38,8 +38,7 @@
 
             <c:set var="xslt">
                 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
-                                xmlns:history="http://www.uts.edu.au/31284/wsd-history"
-                                >
+                                xmlns:history="http://www.uts.edu.au/31284/wsd-history">
                     <xsl:output method="html"/>
                     <xsl:template match="/">
                         <html>

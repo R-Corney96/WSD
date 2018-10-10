@@ -4,5 +4,6 @@
 }
 
 .menu {
-
+    border-collapse: separate;
+    border-spacing: 0px, 20px 0px, 0px;
 }

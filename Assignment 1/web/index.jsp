@@ -6,6 +6,7 @@
 
 <%@page import="java.util.ArrayList"%>
 <%@page contentType="text/html charsetEncoding=UTF-8" pageEncoding="UTF-8" import="wsd.main.*"%>
+<link rel="stylesheet" href="style.css">
 <%
     User user = (User) session.getAttribute("user");
 %>
@@ -16,22 +17,28 @@
         <title>Movies</title>
     </head>
     <body>
-        <div class="menu">
-            <table>
-                <td>
-                <tr><a href="register.jsp">Register</a></tr>
-                <tr><a href="login.jsp">Login</a></tr>
-                <tr><a href="checkout.jsp">Checkout</a></tr>
+        <!-- Main Header Menu for Website Directory -->
+        <table class="menu">
+            <tr>
                 <%
-                    if (user != null) {
+                    if (user == null) {
                 %>
-                <tr><a href="main.jsp">History</a></tr>
+                <td><a href="register.jsp">Register</a></td>
+                <td><a href="login.jsp">Login</a></td>
                 <%
                     }
                 %>
-                </td>
-            </table>
-        </div>
+                <td><a href="checkout.jsp">Checkout</a></td>
+                <%
+                    if (user != null) {
+                %>
+                <td><a href="main.jsp">History</a></td>
+                <td><a href="logoutAction.jsp">Logout</a></td>
+                <%
+                    }
+                %>
+            </tr>
+        </table>
 
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>

@@ -15,7 +15,7 @@
         <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
             <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
         </jsp:useBean>
-        <title>JSP Page</title>
+        <title>Removing From Cart...</title>
     </head>
     <body>
         <%

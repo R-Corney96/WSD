@@ -11,22 +11,33 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="style.css">
+
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Login Page</title>
+        <title>Login</title>
     </head>
     <body>
-    <h1>Login</h1>
-    <%
-    String var = request.getParameter("var");
-    if(var != null){
+        <!-- Main Header Menu for Website Directory -->
+        <table class="menu">
+            <tr>
+                <td><a href="index.jsp">Movies</a></td>
+                <td><a href="register.jsp">Register</a></td>
+            </tr>
+        </table>
+        
+        
+        <h1>Login</h1>
+        <%
+            String var = request.getParameter("var");
+            if (var != null) {
         %>
         Login was not successful!
-    <%
-    }
-    %>
+        <%
+            }
+        %>
         <form action="loginAction.jsp" method="post">
             <table>                
                 <tr><td>Email</td><td><input type="text" name="email"></td></tr>

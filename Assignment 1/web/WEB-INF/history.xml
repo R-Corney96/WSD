@@ -31,7 +31,31 @@ JUST AN EXAMPLE XML, CAN BE CHANGED!!!
                 </movies_ordered>
                 <payment_method>Credit</payment_method>
                 <total_cost>999.99</total_cost>
-            </order>            
+            </order>
+            <order>
+                <id>001</id>
+                <status>submitted</status>
+                <movies_ordered>
+                    <movie_ordered>
+                        <movie_id>583</movie_id>
+                        <title>Shrek</title>
+                        <genre>Family</genre>
+                        <price>999.99</price>
+                        <release_date>2001</release_date>
+                        <copies_purchased>1</copies_purchased>
+                    </movie_ordered>
+                    <movie_ordered>
+                        <movie_id>626</movie_id>
+                        <title>Lilo &#38; Stitch</title>
+                        <genre>Family</genre>
+                        <price>10.00</price>
+                        <release_date>2002</release_date>
+                        <copies_purchased>1</copies_purchased>
+                    </movie_ordered>
+                </movies_ordered>
+                <payment_method>Credit</payment_method>
+                <total_cost>1009.99</total_cost>
+            </order>         
             <order>
                 <id>002</id>
                 <status>cancelled</status>

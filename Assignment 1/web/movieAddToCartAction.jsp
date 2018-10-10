@@ -13,7 +13,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>Moving Item to Cart</title>
+        <title>Moving Item to Cart...</title>
     </head>
     <body>
         <a href="index.jsp">Home</a>

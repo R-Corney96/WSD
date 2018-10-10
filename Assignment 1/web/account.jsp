@@ -11,16 +11,18 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<link rel="stylesheet" href="style.css">
+
 <!DOCTYPE html>
 <html>
     <head>
-        <title>jsp page</title>
+        <title>Edit Account</title>
     </head>
     <%
         User user = (User) session.getAttribute("user");
     %>
     <body>
-        <h1>My Account</h1>
+        <h1>Edit Account</h1>
         <form action='accountAction.jsp' method='post' name='update'>
             <table style='border:none'>
                 <tr>
