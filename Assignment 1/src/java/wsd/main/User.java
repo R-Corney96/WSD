@@ -98,7 +98,7 @@ public class User implements Serializable {
                 currentOrder = order;
             }
         }
-        MovieOrdered movieOrdered = new MovieOrdered(movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
+        MovieOrdered movieOrdered = new MovieOrdered(movie.getMovie_id(), movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
         if (amountOfOrders == 0) {
             String randomNumber = String.format("%3d", 0 + (int) (Math.random() * ((999) + 1)));
             currentOrder = new Order(randomNumber, /*this.name, this.email,*/ movieOrdered);

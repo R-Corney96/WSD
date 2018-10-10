@@ -21,13 +21,50 @@
         <jsp:useBean id="movieRental" class="wsd.main.MovieRental" scope="application">
             <jsp:setProperty name="movieRental" property="filePath" value="<%=moviesFilePath%>"/>
         </jsp:useBean>
-        
+
         <% String historyFilePath = application.getRealPath("WEB-INF/history.xml");%>
         <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
             <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
         </jsp:useBean>
 
         <%
+            MoviesOrdered moviesOrdered = (MoviesOrdered) session.getAttribute("cart");
+            if (moviesOrdered == null) {
+                moviesOrdered = new MoviesOrdered();
+            }
+            String movie_id = request.getParameter("movie");
+            Movies movies = movieRental.getMovies();
+            Movie movie = movies.getMovie(movie_id);
+
+            if (movie != null) {
+                boolean movieExistsInCart = false;
+
+                for (MovieOrdered movieOrdered : moviesOrdered.getList()) {
+                    if (movieOrdered.getMovie_id().equals(movie_id)) {
+                        movieExistsInCart = true;
+                        if (Integer.parseInt(movie.getAvailable_copies()) > Integer.parseInt(movieOrdered.getCopies_purchased())) {
+                            movieOrdered.setCopies_purchased((Integer.parseInt(movieOrdered.getCopies_purchased()) + 1) + "");
+                            session.setAttribute("success", "Successfully added " + movieOrdered.getTitle() + " to cart. Amount in Cart:[" + movieOrdered.getCopies_purchased() +"]");
+                        } else {
+                            session.setAttribute("error", "No More Stock Left of this Item.");
+                        }
+                        break;
+                    }
+                }
+                if (!movieExistsInCart) {
+                    MovieOrdered movieOrdered = new MovieOrdered(movie.getMovie_id(), movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), "1");
+                    moviesOrdered.addMovie(movieOrdered);
+                    session.setAttribute("success", "Successfully added " + movieOrdered.getTitle() + " to cart. Amount in Cart:[" + movieOrdered.getCopies_purchased() +"]");
+                }
+
+                session.setAttribute("cart", moviesOrdered);
+
+                for (MovieOrdered movieOrdered : moviesOrdered.getList()) {
+                    out.print(movieOrdered.getTitle() + " " + movieOrdered.getCopies_purchased() + ", ");
+                }
+                response.sendRedirect("index.jsp");
+            }
+            /*
             User user = (User) session.getAttribute("user");
             
             Movies movies = movieRental.getMovies();
@@ -88,6 +125,7 @@
                 out.print(movie.getRelease_date() + " - $");
                 out.print(movie.getPrice());
             }
+             */
         %>
     </body>
 </html>
