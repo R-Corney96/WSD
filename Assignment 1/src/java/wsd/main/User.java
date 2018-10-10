@@ -105,7 +105,7 @@ public class User implements Serializable {
         } else {
             currentOrder.addMovie(movieOrdered);
         }
-        orders.addOrder(currentOrder);
+        //orders.addOrder(currentOrder);
         //movie.setAvailable_copies(String.valueOf(available - 1));
     }
 

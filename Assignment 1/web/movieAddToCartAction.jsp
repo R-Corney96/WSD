@@ -60,11 +60,11 @@
                     if (Integer.parseInt(availablePost) >= 0) {
                     usersHistory.addMovie(movie, "1");
                     movie.setAvailable_copies(availablePost);
-                    
+                    history.addUser(usersHistory);
                     }
                     //movie.setAvailable_copies(availablePost);
                 }
-                    history.addUser(usersHistory);
+                    
                     historyManager.updateXML(history, historyFilePath);
                     movieRental.updateXML(movies, moviesFilePath);
                     orders = usersHistory.getOrders();
