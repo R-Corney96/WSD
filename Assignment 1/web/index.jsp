@@ -18,6 +18,7 @@
     </head>
     <body>
         <!-- Main Header Menu for Website Directory -->
+        <form action='search.jsp' method='post'>
         <table class="menu">
             <tr>
                 <%
@@ -38,13 +39,25 @@
                     }
                 %>
             </tr>
+            <tr>
+                <td><input type="text" name="query"></td>
+                <td>Genre<input type='radio' name='element' value='genre'>Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
+            </tr>
+            <tr><td><input type="hidden" name="submitted" value="submitted" ><input type="submit" value="Search"></td></tr>
         </table>
+        </form>
 
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
-            <c:import var="xml" url="/WEB-INF/movies.xml" />
+            <%if(request.getParameter("submitted") != null){
+            %>
+            <c:import var="xml" url="/WEB-INF/search.xml"/>
+            <%
+            } else{%>
+            <c:import var="xml" url="/WEB-INF/movies.xml"/>
+            <%}%>
             <c:import var="xslt" url="/WEB-INF/movies.xsl"/>
             <x:transform xml="${xml}" xslt="${xslt}"/>
         </div>
