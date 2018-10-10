@@ -4,5 +4,23 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-history history.xsd">
     <users_history>
+        <email>philipaubert123@hotmail.com</email>
+        <name>Philip Aubert</name>
+    </users_history>
+    <users_history>
+        <email>sebastiandutoit@hotmail.com</email>
+        <name>Sebastian du Toit</name>
+    </users_history>
+    <users_history>
+        <email>robcorney@hotmail.com</email>
+        <name>Robert Corney</name>
+    </users_history>
+    <users_history>
+        <email>homer@thesimpsons.com</email>
+        <name>Homer Simpson</name>
+    </users_history>
+    <users_history>
+        <email>philip.j.fry@planetexpress.com</email>
+        <name>Philip Fry</name>
     </users_history>
 </history>
