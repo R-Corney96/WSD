@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <?xml-stylesheet type="text/xsl" href="movies.xsl"?>
 
+<!-- XML that stores data about movies and how many copies are avaliable of each -->
 <movies
     xmlns="http://www.uts.edu.au/31284/wsd-movies"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -77,5 +78,13 @@
         <genre>Family</genre>
         <price>10.00</price>
         <available_copies>3</available_copies>
+    </movie>
+    <movie>
+        <movie_id>999</movie_id>
+        <title>The Blair Witch Project</title>
+        <release_date>1999</release_date>
+        <genre>Horror</genre>
+        <price>5.99</price>
+        <available_copies>13</available_copies>
     </movie>
 </movies>

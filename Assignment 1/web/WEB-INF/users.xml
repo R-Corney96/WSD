@@ -1,11 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-
-
+<!-- XML that stores data on every user and their personal information -->
 <users 
     xmlns="http://www.uts.edu.au/31284/wsd-users"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -16,6 +10,34 @@ and open the template in the editor.
         <name>Philip Aubert</name>
         <password>lolpassword</password>
         <phone_number>0498443689</phone_number>
-        <address>161 broadway street</address>
+        <address>161 Broadway St</address>
+    </user>
+    <user>
+        <email>sebastiandutoit@hotmail.com</email>
+        <name>Sebastian du Toit</name>
+        <password>wowpassword</password>
+        <phone_number>0402887117</phone_number>
+        <address>123 Fake St</address>
+    </user>
+    <user>
+        <email>robcorney@hotmail.com</email>
+        <name>Robert Corney</name>
+        <password>yeapassword</password>
+        <phone_number>0482738993</phone_number>
+        <address>6 Candycorn Rd</address>
+    </user>
+    <user>
+        <email>homer@thesimpsons.com</email>
+        <name>Homer Simpson</name>
+        <password>donthavecow</password>
+        <phone_number>0288337916</phone_number>
+        <address>5 Evergreen Terrance</address>
+    </user>
+    <user>
+        <email>philip.j.fry@planetexpress.com</email>
+        <name>Philip Fry</name>
+        <password>benderbuds</password>
+        <phone_number>0377261947</phone_number>
+        <address>3000 Future Ave</address>
     </user>
 </users>
