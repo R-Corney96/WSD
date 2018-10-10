@@ -21,14 +21,14 @@
         <table class="menu">
             <tr>
 
-                
+
                 <%
                     if (user == null) {
                 %>
                 <td><a href="register.jsp">Register</a></td>
                 <td><a href="login.jsp">Login</a></td>
                 <%
-                    } else {
+                } else {
                 %>
                 <td><a href="main.jsp">History</a></td>
                 <td><a href="logoutAction.jsp">Logout</a></td>
@@ -41,10 +41,11 @@
         <form action='search.jsp' method='post'>
             <table>
                 <tr>
-                    <td><input type="text" name="query"></td>
-                    <td>Genre<input type='radio' name='element' value='genre'>Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
+                    <td><input type="text" name="query" value="search"></td>
+                    <td>Genre<input type='radio' name='element' value='genre' checked="" >Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
                 </tr>
                 <tr><td><input type="hidden" name="submitted" value="submitted" ><input type="submit" value="Search"></td></tr>
+            </table>
         </form>
 
         <%

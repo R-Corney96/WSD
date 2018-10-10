@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-    Document   : movies.xsl
-    Author     : Sebastian
-    Description:
-        Purpose of transformation follows.
--->
-
+<!-- Transforms the movies.xml into a formatted table where the user can add movies to their cart -->
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
 xmlns:test="http://www.uts.edu.au/31284/wsd-movies"
 >
     <xsl:output method="html"/>
-
-    <!-- TODO customize transformation rules 
-         syntax recommendation http://www.w3.org/TR/xslt 
-    -->
     <xsl:template match="/">
         <html>
             <head>

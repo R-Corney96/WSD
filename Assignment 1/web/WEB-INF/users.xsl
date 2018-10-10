@@ -1,12 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<!--
-    Document   : users.xsl
-    Created on : 10 October 2018, 7:16 PM
-    Author     : robert
-    Description:
-        Purpose of transformation follows.
--->
+<!-- Transforms the users.xml into a formatted table -->
 
 <xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="1.0"
                 xmlns:test="http://www.uts.edu.au/31284/wsd-users">
