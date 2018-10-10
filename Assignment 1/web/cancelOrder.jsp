@@ -50,15 +50,18 @@
                         movieRental.updateXML(movies, moviesFilePath);
                         historyManager.getHistory().getUserHistory(user.getEmail()).cancelOrder(orderID);
                         historyManager.updateXML(historyManager.getHistory(), historyFilePath);
-                        response.sendRedirect("main.jsp?cancel=1");
+                        session.setAttribute("cancel", "1");
+                        response.sendRedirect("main.jsp");
                     } else {
                         //User doesn't have this order
-                        response.sendRedirect("main.jsp?cancel=-1");
+                        session.setAttribute("cancel", "-1");
+                        response.sendRedirect("main.jsp");
                     }
                 }
             } else {
                 //User isn't logged in
-                response.sendRedirect("main.jsp?cancel=-1");
+                session.setAttribute("cancel", -1);
+                        response.sendRedirect("main.jsp");
             }
             
 
