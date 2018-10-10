@@ -11,8 +11,12 @@ import javax.xml.bind.annotation.XmlAccessorType;
 import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 /**
- *
- * @author user
+ * MovieOrdered.Java is a mirror to the Movie.Java class with the field 
+ * copies_purchased instead of available_copies. This is so that there will
+ * never be a conflict between them and for us to easily keep our list of 
+ * movies as static as possible. This class has the standard constructor,
+ * getters and setters setup with a few different methods.
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="movie_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
@@ -30,7 +34,6 @@ public class MovieOrdered implements Serializable{
     private String release_date;
     @XmlElement(name = "copies_purchased", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String copies_purchased;
-    //private String newPrice;
     
     public MovieOrdered(String movie_id, String title, String genre, String price, String release_date, String copies_purchased) 
     {
@@ -38,7 +41,6 @@ public class MovieOrdered implements Serializable{
         this.title = title;
         this.genre = genre;
         this.price = price;
-        //this.newPrice = price;
         this.release_date = release_date;
         this.copies_purchased = copies_purchased;
     }
@@ -62,7 +64,13 @@ public class MovieOrdered implements Serializable{
     public String getPrice() {
         return price;
     }
-    
+    /**
+     * getNewPrice() method is used to get the total sale for an order when there
+     * are multiple copies of movies in the cart. This is because instead of 
+     * creating one object for each movie in the cart, we just increase the field
+     * copies_purchased to save memory.
+     * @return 
+     */
     public String getNewPrice() {
         return String.valueOf(Double.parseDouble(price) * Double.parseDouble(copies_purchased));
     }

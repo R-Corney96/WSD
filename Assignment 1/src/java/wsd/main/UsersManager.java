@@ -15,7 +15,8 @@ import javax.xml.bind.*;
 
 /**
  *
- * @author robert
+ * UsersManager.Java is a marshaller/unmarshaller class that puts information
+ * from Users.Java into Users.xml
  */
 public class UsersManager implements Serializable {
     private String filePath;

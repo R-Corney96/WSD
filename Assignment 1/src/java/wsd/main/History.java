@@ -13,8 +13,10 @@ import javax.xml.bind.annotation.XmlRootElement;
 
 
 /**
- *
- * @author Sebastian
+ *  History.Java is an object that holds a list of UserHistory.Java objects. 
+ * This is used to hold all the information about the orders that have been submitted
+ * or cancelled by users, and formatted to history.xml through HistoryManager.java
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="history", namespace="http://www.uts.edu.au/31284/wsd-history")
@@ -42,7 +44,7 @@ public class History {
         }
         return null; // Login incorrect. Return null.
     }
-    
+    //Updates fields in the user specified
     public void UpdateUserName(String email, String name){
         UsersHistory userHist = getUserHistory(email);
         if(userHist != null){

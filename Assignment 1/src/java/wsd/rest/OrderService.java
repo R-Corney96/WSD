@@ -7,7 +7,8 @@ package wsd.rest;
 
 /**
  *
- * @author user
+ * OrderService.Java is the rest client to search for the history and orders
+ * that have come through. 
  */
 import javax.servlet.ServletContext;
 import javax.ws.rs.*;
@@ -18,6 +19,7 @@ import java.util.ArrayList;
 import java.util.List;
 import wsd.main.*;
 
+//initiates
 @Path("/historyManager")
 public class OrderService {
 
@@ -36,7 +38,7 @@ public class OrderService {
             return historyManager;
         }
     }
-
+//sets path /history to show all history
     @Path("/history")
     @GET
     @Produces("application/xml")
@@ -51,7 +53,7 @@ public class OrderService {
         }
 
     }
-
+//sets path /history/emailparameter to show all orders of a specific user
     @GET
     @Produces("application/xml")
     @Path("/history/{email}")
@@ -67,7 +69,7 @@ public class OrderService {
         }
         
     }
-
+//allows path /orders to show all orders
     @GET
     @Produces("application/xml")
     @Path("/orders")
@@ -89,7 +91,7 @@ public class OrderService {
             
         }
     }
-  
+  //checks if the ID or status exists and prints that out
     @GET
     @Produces("application/xml")
     @Path("/{idOrStatus}")

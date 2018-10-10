@@ -12,8 +12,6 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author user
  * Order class is a child of the UsersHistory and User classes that contains a 
  * order information and a MoviesOrdered object, which is a list of MovieOrdered
  * objects. There are two types of Orders; submitted and cancelled. If the
@@ -41,9 +39,8 @@ public class Order implements Serializable {
 
     /**Constructor in case we add a "Save payment method" function to site for users, not in use
     * at the moment*/
-    public Order(/*String fullName, String email, */MovieOrdered movie, String paymentMethod) {
-        /*this.user_full_name = fullName;
-        this.user_name = email;*/
+    public Order(MovieOrdered movie, String paymentMethod) {
+
         addMovie(movie);
         this.payment_method = paymentMethod;
         this.status = "submitted";
@@ -51,15 +48,15 @@ public class Order implements Serializable {
     }
     /**Constructor that feeds in an ID and a MovieOrdered object to start off with.
     * ID is randomised between 0-999 from the UsersHistory class' addMovie method */
-    public Order(String id, /*String fullName, String email,*/ MovieOrdered movie) {
+    public Order(String id, MovieOrdered movie) {
         this.id = id;
-        /*this.user_full_name = fullName;
-        this.user_name = email;*/
+
         addMovie(movie);
         this.payment_method = "N/A";
         this.status = "submitted";
     }
-    
+    /**Constructor that feeds in an ID and a MoviesOrdered object to start off with.
+    * ID is randomised between 0-999 from the UsersHistory class' addMovies method */
     public Order(String payment_method, MoviesOrdered movies) {
         this.id = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
         this.payment_method = payment_method;
@@ -78,14 +75,6 @@ public class Order implements Serializable {
     public MoviesOrdered getMovies() {
         return movies;
     }
-
-    /*public String getFullName() {
-        return user.getName();
-    }
-
-    public String getUserName() {
-        return user.getEmail();
-    }*/
     
     /**This method returns the total cost of every movie that this order contains
     *Defined as XmlElement so that total_cost will always be up to date in our
@@ -147,6 +136,7 @@ public class Order implements Serializable {
         
         }
     }
+    //Adds a list of MovieOrdered to this order, called from checkout
     public void addMovies(MoviesOrdered moviesOrdered) {
         movies = moviesOrdered;
     }

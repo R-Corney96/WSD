@@ -15,8 +15,11 @@ import javax.xml.bind.Marshaller;
 import javax.xml.bind.Unmarshaller;
 
 /**
- *
- * @author Sebastian
+ * HistoryManager.Java is a marshall/unmarshalling java class that we use 
+ * to update our History.xml with the data that is stored in History.Java.
+ * We also use HistoryManager to retrieve the REST information that 
+ * orderService.Java provides
+ * 
  */
 
 public class HistoryManager {
@@ -26,7 +29,7 @@ public class HistoryManager {
     public String getFilePath() {
         return filePath;
     }
-
+    //decides which xml to connect to
     public void setFilePath(String filePath) throws JAXBException, FileNotFoundException, IOException {
         JAXBContext jc = JAXBContext.newInstance(History.class);
         Unmarshaller u = jc.createUnmarshaller();
@@ -40,7 +43,7 @@ public class HistoryManager {
     public History getHistory() {
         return history;
     }
-
+    //Sends information from History.Java to History.xml by marshalling it through
     public void updateXML(History history, String filePath) throws Exception {
         this.history = history;
         this.filePath = filePath;

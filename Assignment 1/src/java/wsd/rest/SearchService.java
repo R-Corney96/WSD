@@ -15,7 +15,7 @@ import wsd.main.*;
 
 /**
  *
- * @author robert
+ * SearchService.Java is a java class for the REST search bar that we use
  */
 @Path("/search")
 public class SearchService {

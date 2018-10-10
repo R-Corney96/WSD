@@ -5,18 +5,15 @@
  */
 package wsd.main;
 
-/**
- *
- * @author robert
- */
 import java.beans.*;
 import java.io.*;
 import javax.xml.bind.annotation.*;
 import java.util.*;
 
 /**
- *
- * @author robert
+* UsersHistory.Java is a mirror of the User.Java class just that it contains only
+* name and email from the user, and holds an Orders object to store orders that
+* the user has gone through with. Is used with History.
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "users_history", namespace = "http://www.uts.edu.au/31284/wsd-history")
@@ -63,6 +60,7 @@ public class UsersHistory implements Serializable {
     public Orders getOrders() {
         return orders;
     }
+    //adds all orders to current orders object
     public void addOrders(Orders orders2) {
         for (Order order2: orders2.getList()) {
             if (!containsOrder(order2.getID())) {
@@ -70,6 +68,7 @@ public class UsersHistory implements Serializable {
             }
         }
     }
+    //adds one specific order if it doesn't already exist
     public void addOrder(Order order2) {
             if (!containsOrder(order2.getID())) {
             orders.addOrder(order2);
@@ -79,30 +78,6 @@ public class UsersHistory implements Serializable {
 
     public void setOrders(Orders orders) {
         this.orders = orders;
-    }
-    
-    public void addMovie(Movie movie, String quantity) {
-        boolean isSubmitted = false;
-        Order currentOrder = null;
-        int available = Integer.parseInt(movie.getAvailable_copies());
-        for (Order order : orders.getList()) {
-            if (order.getStatus().equals("submitted")) {
-                currentOrder = order;
-                isSubmitted = true;
-            } else {
-                isSubmitted = false;
-            }
-        }
-        MovieOrdered movieOrdered = new MovieOrdered(movie.getMovie_id(), movie.getTitle(), movie.getGenre(), movie.getPrice(), movie.getRelease_date(), quantity);
-        if (!isSubmitted) {
-            String randomNumber = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
-            currentOrder = new Order(randomNumber, /*this.name, this.email,*/ movieOrdered);
-            orders.addOrder(currentOrder);
-        } else {
-            currentOrder.addMovie(movieOrdered);
-        }
-        
-        //movie.setAvailable_copies(String.valueOf(available - 1));
     }
     
     public boolean containsOrder(String id){
