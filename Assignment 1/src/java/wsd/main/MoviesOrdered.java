@@ -10,8 +10,10 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
 
 /**
- *
- * @author user
+ *  MoviesOrdered.Java is an object that contains a list of MovieOrdered.Java
+ * objects and is used by Order.Java to easily show all the movies that an order
+ * contains
+ * 
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name = "movies_ordered", namespace = "http://www.uts.edu.au/31284/wsd-history")
@@ -27,23 +29,10 @@ public class MoviesOrdered implements Serializable {
     }
 
     public void addMovie(MovieOrdered movie) {
-        //for (Movie movie2 : movieRental.getMovies().getList()) {
-           // if (movie2.getTitle().equals(movie.getTitle()))
-           // {
-           //     movie2.setAvailable_copies(String.valueOf(Integer.parseInt(movie2.getAvailable_copies()) - 1));
-           // }
-        
         movieList.add(movie);
-    //}
     }
 
     public void removeMovie(MovieOrdered movie){
-        //for (Movie movie2 : movieRental.getMovies().getList()) {
-        //    if (movie2.getTitle().equals(movie.getTitle()))
-        //    {
-         //       movie2.setAvailable_copies(String.valueOf(Integer.parseInt(movie2.getAvailable_copies()) + 1));
-         //   }
-       // }
         movieList.remove(movie);
     }
 }

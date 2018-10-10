@@ -10,7 +10,9 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
 /**
  *
- * @author user
+ * Orders.Java is an object that stores a list of Order.Java objects. This is
+ * a child of UsersHistory to easily show all the orders that a user has so that
+ * it can be displayed in History
  */
 @XmlAccessorType(XmlAccessType.FIELD)
 
@@ -32,7 +34,7 @@ public class Orders implements Serializable {
     public void addOrder(Order order) {
         orderList.add(order);
     }
-    
+    //iterates through orders and cancels an order with specific ID
     public void cancelOrder(String id){
         for(Order order : orderList){
             if(order.getID().equals(id)){
@@ -41,11 +43,11 @@ public class Orders implements Serializable {
             }
         }
     }
-    
+    //checks if specific order exists in this list
     public boolean containsOrder(String id){
         return (getOrder(id) != null);
     }
-    
+    //gets specific order filtered by id
     public Order getOrder(String id){
         for(Order order : orderList){
             if(order.getID().equals(id)){

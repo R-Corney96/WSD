@@ -10,8 +10,9 @@ import java.util.ArrayList;
 import javax.xml.bind.annotation.*;
 
 /**
- *
- * @author robert
+ *  Movies.Java is an object that holds a list of Movie.Java objects and is a 
+ *  managed by MovieRental.Java to keep updating the Movies.xml
+ * 
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -30,7 +31,7 @@ public class Movies implements Serializable {
     public void removeMovie(Movie movie) {
         movieList.remove(movie);
     }
-    
+    //Get a specific movie depending on the movie ID, iterates through all movies
     public Movie getMovie(String movie_id){
         for(Movie movie : movieList){
             if(movie.getMovie_id().equals(movie_id)){

@@ -6,8 +6,9 @@
 package wsd.main;
 
 /**
- *
- * @author robert
+ * Users.Java is an object that stores a list of User.Java objects to easily
+ * reference all users that is using our site. UsersManager.Java parses this
+ * information into users.xml.
  */
 
 import java.util.*;

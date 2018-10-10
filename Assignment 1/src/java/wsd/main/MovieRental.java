@@ -9,8 +9,8 @@ import java.io.*;
 import javax.xml.bind.*;
 
 /**
- *
- * @author Sebastian
+ * MovieRental.Java is a marshall/unmarshalling java class that we use 
+ * to update our Movies.xml with the data that is stored in Movies.Java.
  */
 public class MovieRental implements Serializable {
     

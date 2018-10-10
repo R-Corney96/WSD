@@ -12,8 +12,10 @@ import javax.xml.bind.annotation.XmlElement;
 import javax.xml.bind.annotation.XmlRootElement;
 
 /**
- *
- * @author robert
+ * Movie.Java is the class that holds the information on the movies available
+ * through our service. This is a standard object class with fields such as
+ * ID, name, etc. with constructor, getters and setters for all your needs.
+ * 
  */
 
 @XmlAccessorType(XmlAccessType.FIELD)
@@ -90,7 +92,5 @@ public class Movie implements Serializable {
         this.available_copies = available_copies;
     }
     
-    public void removeOneAvailableCopy() {
-        this.available_copies = (Integer.parseInt(available_copies) - 1) + "";
-    }
+
 }
