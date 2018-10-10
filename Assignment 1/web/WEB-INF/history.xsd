@@ -1,0 +1,113 @@
+<?xml version="1.0"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+
+<xs:schema version="1.0"
+           targetNamespace="http://www.uts.edu.au/31284/wsd-history"
+           xmlns="http://www.uts.edu.au/31284/wsd-history"
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           elementFormDefault="qualified">
+    
+    <xs:simpleType name="nameType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}[a-zA-Z]+([ ][A-Z]{1}[a-zA-Z]+)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="emailType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-zA-Z\._\d]+@[a-zA-Z\-]+(\.[a-zA-Z\-]+)+"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name = "idType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[\d]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name = "statusType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[a-z]*"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="releaseDate">
+        <xs:restriction base="xs:integer"> 
+            <xs:minInclusive value="1900"/>
+            <xs:maxInclusive value="3000"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="genre">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[A-Z]{1}[a-zA-Z]*([ ][A-Z]{1}[a-zA-Z]+)*"/>
+        </xs:restriction>
+    </xs:simpleType>
+
+    <xs:simpleType name="price">
+        <xs:restriction base="xs:double"> 
+            <xs:minInclusive value="0.01"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:simpleType name="purchased">
+        <xs:restriction base="xs:integer"> 
+            <xs:minInclusive value="1"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
+    <xs:element name = "history">
+        <xs:complexType> 
+            <xs:sequence>
+                <xs:element name = "users_history"> 
+                    <xs:complexType>
+                        <xs:sequence>
+                            <xs:element name = "name" type ="nameType"/>
+                            <xs:element name = "email" type = "emailType"/>
+                            <xs:element name = "orders">
+                                <xs:complexType> 
+                                    <xs:sequence> 
+                                        <xs:element name = "order" maxOccurs="unbounded"> 
+                                            <xs:complexType> 
+                                                <xs:sequence>
+                                                    <xs:element name="id" type="idType" /> 
+                                                    <xs:element name="status" type="statusType" /> 
+                                                    <xs:element name="movies_ordered" maxOccurs="1">
+                                                        <xs:complexType>
+                                                            <xs:sequence> 
+                                                                <xs:element name="movie_ordered" maxOccurs="unbounded" minOccurs="1">
+                                                                    <xs:complexType>
+                                                                        <xs:sequence>
+                                                                            <xs:element name ="movie_id" type="idType" />
+                                                                            <xs:element name="title" type="xs:string" /> 
+                                                                            <xs:element name="genre" type="genre" />
+                                                                            <xs:element name="price" type="price" />
+                                                                            <xs:element name="release_date" type="releaseDate" />
+                                                                            <xs:element name="copies_purchased" type="purchased" />
+                                                                        </xs:sequence>
+                                                                    </xs:complexType>
+                                                                </xs:element>
+                                                            </xs:sequence>
+                                                        </xs:complexType>
+                                                    </xs:element>
+                                                    <xs:element name="payment_method" type="xs:string" />
+                                                    <xs:element name="total_cost" type="xs:double" />
+                                                    
+                                                </xs:sequence>
+                                            </xs:complexType>
+                                        </xs:element>
+                                    </xs:sequence>
+                                </xs:complexType>
+                            </xs:element>
+                        </xs:sequence>
+                    </xs:complexType>
+                </xs:element> 
+            </xs:sequence>
+        </xs:complexType>
+    </xs:element>
+
+</xs:schema>

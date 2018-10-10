@@ -11,7 +11,8 @@ and open the template in the editor.
 JUST AN EXAMPLE XML, CAN BE CHANGED!!!
 -->
 <history xmlns="http://www.uts.edu.au/31284/wsd-history"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+xsi:schemaLocation="http://www.uts.edu.au/31284/wsd-history history.xsd">
     <users_history>
         <name>Philip Aubert</name>
         <email>philipaubert123@hotmail.com</email>

@@ -37,6 +37,12 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
     
+    <xs:simpleType name = "idType">
+        <xs:restriction base="xs:string">
+            <xs:pattern value="[\d]{3}"/>
+        </xs:restriction>
+    </xs:simpleType>
+    
     
     <xs:element name = "movies">
         <xs:complexType> 
@@ -44,6 +50,7 @@ and open the template in the editor.
                 <xs:element name = "movie" maxOccurs="unbounded"> 
                     <xs:complexType> 
                         <xs:sequence> 
+                            <xs:element name ="movie_id" type="idType" />
                             <xs:element name="title" type="xs:string" /> 
                             <xs:element name="release_date" type="releaseDate" />
                             <xs:element name="genre" type="genre" />

@@ -23,6 +23,8 @@ and open the template in the editor.
         </xs:restriction>
     </xs:simpleType>
     
+   
+    
     <xs:simpleType name="passwordType">
         <xs:restriction base="xs:string">
             <xs:minLength  value="4" />
