@@ -17,30 +17,36 @@
     </head>
     <body>
         <% String filePath = application.getRealPath("WEB-INF/users.xml");
-        String secondFilePath = application.getRealPath("WEB-INF/history.xml");%>
+            String secondFilePath = application.getRealPath("WEB-INF/history.xml");%>
         <jsp:useBean id="usersManager" class="wsd.main.UsersManager" scope="application">
             <jsp:setProperty name="usersManager" property="filePath" value="<%=filePath%>"/>
         </jsp:useBean>
         <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
-          <jsp:setProperty name = "historyManager" property="filePath" value="<%=secondFilePath%>"/>
-      </jsp:useBean>
+            <jsp:setProperty name = "historyManager" property="filePath" value="<%=secondFilePath%>"/>
+        </jsp:useBean>
 
         <%
             History history = historyManager.getHistory();
             Users users = usersManager.getUsers();
+            //get user entered details from login
             String email = request.getParameter("email");
             String password = request.getParameter("password");
+            // test user details against users XML
             User user = users.login(email, password);
 
+            //if user logged in
             if (user != null) {
+                
                 if (history.getUserHistory(user.getEmail()) == null) {
                     UsersHistory usersHistory = new UsersHistory(user.getEmail(), user.getName());
                     history.addUser(usersHistory);
                 }
+                //send user to main and set user session
                 session.setAttribute("user", user);
                 response.sendRedirect("main.jsp");
-                
+
             } else {
+                // send error back to login
                 response.sendRedirect("login.jsp?var=1");
             }
         %>
