@@ -19,43 +19,46 @@
     <body>
         <!-- Main Header Menu for Website Directory -->
         <form action='search.jsp' method='post'>
-        <table class="menu">
-            <tr>
-                <%
-                    if (user == null) {
-                %>
-                <td><a href="register.jsp">Register</a></td>
-                <td><a href="login.jsp">Login</a></td>
-                <%
-                    }
-                %>
-                <td><a href="checkout.jsp">Checkout</a></td>
-                <%
-                    if (user != null) {
-                %>
-                <td><a href="main.jsp">History</a></td>
-                <td><a href="logoutAction.jsp">Logout</a></td>
-                <%
-                    }
-                %>
-            </tr>
-            <tr>
-                <td><input type="text" name="query"></td>
-                <td>Genre<input type='radio' name='element' value='genre'>Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
-            </tr>
-            <tr><td><input type="hidden" name="submitted" value="submitted" ><input type="submit" value="Search"></td></tr>
-        </table>
+            <table class="menu">
+                <tr>
+                    <%
+                        if (user == null) {
+                    %>
+                    <td><a href="register.jsp">Register</a></td>
+                    <td><a href="login.jsp">Login</a></td>
+                    <%
+                        }
+                    %>
+                    <td><a href="checkout.jsp">Checkout</a></td>
+                    <%
+                        if (user != null) {
+                    %>
+                    <td><a href="main.jsp">History</a></td>
+                    <td><a href="logoutAction.jsp">Logout</a></td>
+                    <%
+                        }
+                    %>
+                </tr>
+                <tr>
+                    <td><input type="text" name="query"></td>
+                    <td>Genre<input type='radio' name='element' value='genre'>Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
+                </tr>
+                <tr><td><input type="hidden" name="submitted" value="submitted" ><input type="submit" value="Search"></td></tr>
+            </table>
         </form>
 
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
-            <%if(request.getParameter("submitted") != null){
-            %>
-            <c:import var="xml" url="/WEB-INF/search.xml"/>
             <%
-            } else{%>
+                if (session.getAttribute("submitted") != null) {
+                    String url = (String) session.getAttribute("search");
+                    session.setAttribute("submitted", null);
+            %>
+            <c:import var="xml" url="<%=url%>"/>
+            <%
+            } else {%>
             <c:import var="xml" url="/WEB-INF/movies.xml"/>
             <%}%>
             <c:import var="xslt" url="/WEB-INF/movies.xsl"/>
