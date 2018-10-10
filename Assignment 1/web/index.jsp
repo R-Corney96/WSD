@@ -49,6 +49,13 @@
 
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
+            <%
+                String queryError =(String) session.getAttribute("queryError");
+                if(queryError!=null){
+                    %><p><%=queryError%></p><%
+                        session.setAttribute("queryError", null);
+                }
+            %>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
             <%

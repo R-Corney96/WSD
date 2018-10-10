@@ -16,6 +16,11 @@
     String element = request.getParameter("element");
     String query = request.getParameter("query");
     
+    if(element == null || query == null){
+    session.setAttribute("queryError", "Please make sure proper selection");
+    response.sendRedirect("index.jsp");
+    }
+    
     session.setAttribute("search", "http://localhost:8080/Assignment_1/rest/search/query?element="+element+"&query="+query);
     session.setAttribute("submitted", true);
     response.sendRedirect("index.jsp");
