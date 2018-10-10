@@ -59,6 +59,16 @@ public class Order implements Serializable {
         this.payment_method = "N/A";
         this.status = "submitted";
     }
+    
+    public Order(String id, String payment_method, MoviesOrdered movies) {
+        this.id = id;
+        this.payment_method = payment_method;
+        addMovies(movies);
+        this.status = "submitted";
+        
+        
+        
+    }
 
     public Order() {
 
@@ -139,6 +149,9 @@ public class Order implements Serializable {
             movies.addMovie(movie);
         
         }
+    }
+    public void addMovies(MoviesOrdered moviesOrdered) {
+        movies = moviesOrdered;
     }
     /** removeMovie goes through each movieOrdered in the moviesOrdered list
      * and checks if it exists, if it does remove it from the list after iteration
