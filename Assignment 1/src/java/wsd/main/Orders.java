@@ -16,7 +16,10 @@ import javax.xml.bind.annotation.*;
 
 @XmlRootElement(name="orders", namespace = "http://www.uts.edu.au/31284/wsd-history")
 
-
+/**
+ * Orders class is basically a list of Order.Java objects that is a child of
+ * User and UsersHistory class.
+ */
 public class Orders implements Serializable {
     
     @XmlElement(name="order", namespace="http://www.uts.edu.au/31284/wsd-history")

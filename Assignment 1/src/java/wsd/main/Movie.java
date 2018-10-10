@@ -19,17 +19,17 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlAccessorType(XmlAccessType.FIELD)
 @XmlRootElement(name="movie", namespace="http://www.uts.edu.au/31284/wsd-movies")
 public class Movie implements Serializable {
-    @XmlElement(name = "movie_id")
+    @XmlElement(name = "movie_id", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String movie_id;
-    @XmlElement(name = "title")
+    @XmlElement(name = "title", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String title;
-    @XmlElement(name = "release_date")
+    @XmlElement(name = "release_date", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String release_date;
-    @XmlElement(name = "genre")
+    @XmlElement(name = "genre", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String genre;
-    @XmlElement(name = "price")
+    @XmlElement(name = "price", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String price;
-    @XmlElement(name = "available_copies")
+    @XmlElement(name = "available_copies", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private String available_copies;
 
     public Movie(String title, String release_date, String genre, String price, String available_copies) {

@@ -97,10 +97,11 @@ public class UsersHistory implements Serializable {
         if (!isSubmitted) {
             String randomNumber = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
             currentOrder = new Order(randomNumber, /*this.name, this.email,*/ movieOrdered);
+            orders.addOrder(currentOrder);
         } else {
             currentOrder.addMovie(movieOrdered);
         }
-        orders.addOrder(currentOrder);
+        
         //movie.setAvailable_copies(String.valueOf(available - 1));
     }
     

@@ -52,7 +52,7 @@
                 }
                 
                 historyManager.updateXML(history, historyFilePath);
-                //movieRental.updateXML(movies, moviesFilePath);
+                movieRental.updateXML(movies, moviesFilePath);
                 orders = usersHistory.getOrders();
                 //usersHistory.addOrders(orders);
                 } else {
@@ -60,14 +60,17 @@
                     if (Integer.parseInt(availablePost) >= 0) {
                     usersHistory.addMovie(movie, "1");
                     movie.setAvailable_copies(availablePost);
+                    
+                    }
+                    //movie.setAvailable_copies(availablePost);
                 }
                     history.addUser(usersHistory);
                     historyManager.updateXML(history, historyFilePath);
-                    //movieRental.updateXML(movies, moviesFilePath);
+                    movieRental.updateXML(movies, moviesFilePath);
                     orders = usersHistory.getOrders();
                     
                 }
-            }
+            
 
             if (movie == null) {
                 out.print("Empty Movie");

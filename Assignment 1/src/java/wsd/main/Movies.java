@@ -18,7 +18,7 @@ import javax.xml.bind.annotation.*;
 @XmlRootElement(name="movies", namespace="http://www.uts.edu.au/31284/wsd-movies")
 public class Movies implements Serializable {
     
-    @XmlElement(name="movie")
+    @XmlElement(name="movie", namespace="http://www.uts.edu.au/31284/wsd-movies")
     private ArrayList<Movie> movieList = new ArrayList<Movie>();
  
     public ArrayList<Movie> getList() {
