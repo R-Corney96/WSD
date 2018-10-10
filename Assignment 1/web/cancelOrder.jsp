@@ -24,7 +24,7 @@
     </head>
     <body>
         <%
-           // Movies movies = movieRental.getMovies();
+               Movies movies = movieRental.getMovies();
             User user = (User) session.getAttribute("user");
             if (user != null) {
                 String orderID = request.getParameter("order");
@@ -34,20 +34,20 @@
                 if (historyManager.getHistory().getUserHistory(user.getEmail()) != null) {
                     if (historyManager.getHistory().getUserHistory(user.getEmail()).containsOrder(orderID)) {
                         
-                       // Order order = null;
-                       // for (Order order2 : historyManager.getHistory().getUserHistory(user.getEmail()).getOrders().getList()) {
-                         //   if (order2.getID() == orderID) {
-                         //      order = order2; 
-                         //   }
-                        //}
-                       // for (MovieOrdered movieOrdered : order.getMovies().getList()) {
-                        //    for (Movie movie : movies.getList()) {
-                        //        if (movieOrdered.getTitle().equals(movie.getTitle())) {
-                        //            movie.setAvailable_copies(String.valueOf(Integer.parseInt(movie.getAvailable_copies()) + Integer.parseInt(movieOrdered.getCopies_purchased())));
-                        //        }
-                       //     }
-                       // }
-                       // movieRental.updateXML(movies, moviesFilePath);
+                        Order order = null;
+                        for (Order order2 : historyManager.getHistory().getUserHistory(user.getEmail()).getOrders().getList()) {
+                            if (order2.getID().equals(orderID)) {
+                               order = order2; 
+                            }
+                        }
+                        for (MovieOrdered movieOrdered : order.getMovies().getList()) {
+                            for (Movie movie : movies.getList()) {
+                                if (movieOrdered.getTitle().equals(movie.getTitle())) {
+                                   movie.setAvailable_copies(String.valueOf(Integer.parseInt(movie.getAvailable_copies()) + Integer.parseInt(movieOrdered.getCopies_purchased())));
+                                }
+                            }
+                        }
+                        movieRental.updateXML(movies, moviesFilePath);
                         historyManager.getHistory().getUserHistory(user.getEmail()).cancelOrder(orderID);
                         historyManager.updateXML(historyManager.getHistory(), historyFilePath);
                         response.sendRedirect("main.jsp?cancel=1");
