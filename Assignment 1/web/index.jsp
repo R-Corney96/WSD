@@ -18,46 +18,46 @@
     </head>
     <body>
         <!-- Main Header Menu for Website Directory -->
+        <table class="menu">
+            <tr>
+
+                
+                <%
+                    if (user == null) {
+                %>
+                <td><a href="register.jsp">Register</a></td>
+                <td><a href="login.jsp">Login</a></td>
+                <%
+                    } else {
+                %>
+                <td><a href="main.jsp">History</a></td>
+                <td><a href="logoutAction.jsp">Logout</a></td>
+                <%
+                    }
+                %>
+                <td><a href="checkout.jsp">Checkout</a></td>
+            </tr>
+        </table>
         <form action='search.jsp' method='post'>
-            <table class="menu">
-                <tr>
-                    <%
-                        if (user == null) {
-                    %>
-                    <td><a href="register.jsp">Register</a></td>
-                    <td><a href="login.jsp">Login</a></td>
-                    <%
-                        }
-                    %>
-                    <td><a href="checkout.jsp">Checkout</a></td>
-                    <%
-                        if (user != null) {
-                    %>
-                    <td><a href="main.jsp">History</a></td>
-                    <td><a href="logoutAction.jsp">Logout</a></td>
-                    <%
-                        }
-                    %>
-                </tr>
+            <table>
                 <tr>
                     <td><input type="text" name="query"></td>
                     <td>Genre<input type='radio' name='element' value='genre'>Title<input type='radio' name='element' value='title'>Year<input type='radio' name='element' value='year'></td>
                 </tr>
                 <tr><td><input type="hidden" name="submitted" value="submitted" ><input type="submit" value="Search"></td></tr>
-            </table>
         </form>
 
         <%
             String error = (String) session.getAttribute("error");
             if (error != null) {
-                %><p class="error"><%=error%></p><%
-                            session.setAttribute("error", null);
-                        }
-                        String success = (String) session.getAttribute("success");
-                        if (success != null) {
-                %><p class="success"><%=success%></p><%
-                            session.setAttribute("success", null);
-                        }
+        %><p class="error"><%=error%></p><%
+                session.setAttribute("error", null);
+            }
+            String success = (String) session.getAttribute("success");
+            if (success != null) {
+        %><p class="success"><%=success%></p><%
+                session.setAttribute("success", null);
+            }
             %>
         <!-- Generate HTML for Movies List using XSL Transform -->
         <div>
@@ -65,8 +65,8 @@
                 String queryError = (String) session.getAttribute("queryError");
                 if (queryError != null) {
             %><p><%=queryError%></p><%
-                            session.setAttribute("queryError", null);
-                        }
+                    session.setAttribute("queryError", null);
+                }
             %>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>

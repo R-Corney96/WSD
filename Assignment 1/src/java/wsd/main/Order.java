@@ -60,14 +60,11 @@ public class Order implements Serializable {
         this.status = "submitted";
     }
     
-    public Order(String id, String payment_method, MoviesOrdered movies) {
-        this.id = id;
+    public Order(String payment_method, MoviesOrdered movies) {
+        this.id = String.valueOf( 0 + (int) (Math.random() * ((999) + 1)));
         this.payment_method = payment_method;
         addMovies(movies);
         this.status = "submitted";
-        
-        
-        
     }
 
     public Order() {
@@ -99,7 +96,7 @@ public class Order implements Serializable {
         for (MovieOrdered movie : movies.getList()) {
             saleTotal += Double.valueOf(movie.getNewPrice());
         }
-        return String.valueOf(saleTotal);
+        return String.valueOf(Math.round(saleTotal*100f)/100f);
     }
     //returns total quantity of a specific movie, not in use
     public String getQuantityTotal(Movie movie) {

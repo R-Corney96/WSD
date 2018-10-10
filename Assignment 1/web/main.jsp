@@ -19,7 +19,7 @@
 <html>
     <head>
         <% User user = (User) session.getAttribute("user");
-        Object cancelOrderFeedback = (Object) session.getAttribute("cancel");
+            Object cancelOrderFeedback = (Object) session.getAttribute("cancel");
         %>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -29,23 +29,24 @@
         <!-- Main Header Menu for Website Directory -->
         <table class="menu">
             <tr>
-                <td><a href="account.jsp">Edit Account</a></td>
                 <td><a href="index.jsp">Movies</a></td>
+                <td><a href="checkout.jsp">Checkout</a></td>
+                <td><a href="account.jsp">Edit Account</a></td>
                 <td><a href="logoutAction.jsp">Logout</a></td>
             </tr>
         </table>
 
         <div>
             <h1><%=user.getName()%>'s History</h1>
-            <%  if(cancelOrderFeedback != null){
-                    if(cancelOrderFeedback.equals("-1")){ %>
+            <%  if (cancelOrderFeedback != null) {
+                    if (cancelOrderFeedback.equals("-1")) { %>
             <p class="error">There was an error cancelling the order.</p>
-            <%      } else if(cancelOrderFeedback.equals("1")) {%>
+            <%      } else if (cancelOrderFeedback.equals("1")) {%>
             <p class="success">Order Cancelled. May take a few seconds for XML to update!</p>
             <%      }
                     session.setAttribute("cancel", "0");
                 }
-                %>
+            %>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
             <c:import var="xml" url="/WEB-INF/history.xml" />
@@ -124,16 +125,16 @@
 
                     <xsl:template match="history:id"/>
                     <xsl:template match="history:status"/>
-                    
+
                     <xsl:template match="history:movies_ordered">
                         <xsl:apply-templates/>
                     </xsl:template>
                     <xsl:template match="history:movie_ordered">
                         <xsl:apply-templates/>
                     </xsl:template>
-                                
-                                
-                    
+
+
+
                     <xsl:template match="history:release_date"/>
                     <xsl:template match="history:movie_id"/>
                     <xsl:template match="history:price"/>

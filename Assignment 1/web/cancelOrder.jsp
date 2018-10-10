@@ -42,7 +42,7 @@
                         }
                         for (MovieOrdered movieOrdered : order.getMovies().getList()) {
                             for (Movie movie : movies.getList()) {
-                                if (movieOrdered.getTitle().equals(movie.getTitle())) {
+                                if (movieOrdered.getMovie_id().equals(movie.getMovie_id())) {
                                    movie.setAvailable_copies(String.valueOf(Integer.parseInt(movie.getAvailable_copies()) + Integer.parseInt(movieOrdered.getCopies_purchased())));
                                 }
                             }

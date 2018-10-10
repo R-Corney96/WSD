@@ -89,4 +89,8 @@ public class Movie implements Serializable {
     public void setAvailable_copies(String available_copies) {
         this.available_copies = available_copies;
     }
+    
+    public void removeOneAvailableCopy() {
+        this.available_copies = (Integer.parseInt(available_copies) - 1) + "";
+    }
 }
