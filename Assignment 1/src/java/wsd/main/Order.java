@@ -38,9 +38,6 @@ public class Order implements Serializable {
     
     @XmlElement(name = "payment_method", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String payment_method;
-    
-    //@XmlElement(name = "total_cost", namespace="http://www.uts.edu.au/31284/wsd-history")
-    private String total_cost;
 
     /**Constructor in case we add a "Save payment method" function to site for users, not in use
     * at the moment*/
@@ -92,7 +89,6 @@ public class Order implements Serializable {
         for (MovieOrdered movie : movies.getList()) {
             saleTotal += Double.valueOf(movie.getNewPrice());
         }
-        total_cost = String.valueOf(saleTotal);
         return String.valueOf(saleTotal);
     }
     //returns total quantity of a specific movie, not in use
