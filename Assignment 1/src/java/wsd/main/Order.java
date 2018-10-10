@@ -33,6 +33,9 @@ public class Order implements Serializable {
     
     @XmlElement(name = "payment_method", namespace="http://www.uts.edu.au/31284/wsd-history")
     private String payment_method;
+    
+    @XmlElement(name = "total_cost", namespace="http://www.uts.edu.au/31284/wsd-history")
+    private String total_cost;
 
 
     public Order(/*String fullName, String email, */MovieOrdered movie, String paymentMethod) {

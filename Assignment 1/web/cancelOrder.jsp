@@ -26,21 +26,19 @@
                 UsersHistory usersHistory = historyManager.getHistory().getUserHistory(user.getEmail());
 
                 //If the user has history and an order with this id
-                if (usersHistory != null) {
-                    if (usersHistory.containsOrder(orderID)) {
-                        usersHistory.cancelOrder(orderID);
-                        response.sendRedirect("main.jsp?var=1");
+                if (historyManager.getHistory().getUserHistory(user.getEmail()) != null) {
+                    if (historyManager.getHistory().getUserHistory(user.getEmail()).containsOrder(orderID)) {
+                        historyManager.getHistory().getUserHistory(user.getEmail()).cancelOrder(orderID);
+                        historyManager.updateXML(historyManager.getHistory(), historyFilePath);
+                        response.sendRedirect("main.jsp?cancel=1");
                     } else {
-                        for(Order order : usersHistory.getOrders().getList()){
-                            out.write(order.getID() + ", ");
-                        }
-                        out.write("1");
-                        //response.sendRedirect("main.jsp?var=0");
+                        //User doesn't have this order
+                        response.sendRedirect("main.jsp?cancel=-1");
                     }
                 }
             } else {
-                out.write("2");
-                //response.sendRedirect("main.jsp?var=0");
+                //User isn't logged in
+                response.sendRedirect("main.jsp?cancel=-1");
             }
             
 

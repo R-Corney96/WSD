@@ -10,11 +10,19 @@
 <%@page import="wsd.main.User"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <link rel="stylesheet" href="style.css">
-
+<meta http-equiv="cache-control" content="max-age=0" />
+<meta http-equiv="cache-control" content="no-store" />
+<meta http-equiv="expires" content="-1" />
+<meta http-equiv="expires" content="Tue, 01 Jan 1980 1:00:00 GMT" />
+<meta http-equiv="pragma" content="no-cache" />
 <!DOCTYPE html>
 <html>
     <head>
-        <% User user = (User) session.getAttribute("user");%>
+        <% User user = (User) session.getAttribute("user");
+        Object cancelOrderFeedback = (Object) session.getAttribute("cancel");
+        //Temp Debugging
+        out.print(cancelOrderFeedback);
+        %>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>Main</title>
@@ -31,7 +39,13 @@
 
         <div>
             <h1><%=user.getName()%>'s History</h1>
-
+            <%  if(cancelOrderFeedback != null){
+                    if(cancelOrderFeedback.equals("-1")){ %>
+            <div class="error">There was an error cancelling the order.</div>
+            <%      } else if (cancelOrderFeedback.equals("1")){ %>
+            <div class="success">Order Cancelled</div>
+            <%      } 
+                }%>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
             <c:import var="xml" url="/WEB-INF/history.xml" />
