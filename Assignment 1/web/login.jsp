@@ -31,6 +31,7 @@
         
         <h1>Login</h1>
         <%
+            //get error variable sent back by loginAction
             String var = request.getParameter("var");
             if (var != null) {
         %>
@@ -38,6 +39,7 @@
         <%
             }
         %>
+        <!-- user form to send details to loginAction -->
         <form action="loginAction.jsp" method="post">
             <table>                
                 <tr><td>Email</td><td><input type="text" name="email"></td></tr>
