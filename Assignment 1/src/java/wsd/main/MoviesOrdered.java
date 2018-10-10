@@ -21,7 +21,7 @@ public class MoviesOrdered implements Serializable {
     private ArrayList<MovieOrdered> movieList = new ArrayList<MovieOrdered>();
     
     MovieRental movieRental;
-
+    
     public ArrayList<MovieOrdered> getList() {
         return movieList;
     }

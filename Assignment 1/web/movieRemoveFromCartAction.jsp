@@ -15,11 +15,47 @@
         <jsp:useBean id="historyManager" class="wsd.main.HistoryManager" scope="application">
             <jsp:setProperty name="historyManager" property="filePath" value="<%=historyFilePath%>"/>
         </jsp:useBean>
+
+        <% String moviesFilePath = application.getRealPath("WEB-INF/movies.xml");%>
+        <jsp:useBean id="movieRental" class="wsd.main.MovieRental" scope="application">
+            <jsp:setProperty name="movieRental" property="filePath" value="<%=moviesFilePath%>"/>
+        </jsp:useBean>
         <title>Removing From Cart...</title>
     </head>
     <body>
         <%
+            MoviesOrdered moviesOrdered = (MoviesOrdered) session.getAttribute("cart");
+            if (moviesOrdered == null) {
+                moviesOrdered = new MoviesOrdered();
+            }
+            String movie_id = request.getParameter("movie");
+            Movies movies = movieRental.getMovies();
+            Movie movie = movies.getMovie(movie_id);
 
+            if (movie != null) {
+
+                for (MovieOrdered movieOrdered : moviesOrdered.getList()) {
+                    if (movieOrdered.getMovie_id().equals(movie_id)) {
+                        movieOrdered.setCopies_purchased((Integer.parseInt(movieOrdered.getCopies_purchased()) - 1) + "");
+                        session.setAttribute("success", "Successfully Removed " + movieOrdered.getTitle() + " from cart. Amount in Cart:[" + movieOrdered.getCopies_purchased() + "]");
+
+                        if (movieOrdered.getCopies_purchased().equals("0")) {
+                            moviesOrdered.removeMovie(movieOrdered);
+                        }
+                        break;
+                    }
+                }
+
+                session.setAttribute("cart", moviesOrdered);
+
+                for (MovieOrdered movieOrdered : moviesOrdered.getList()) {
+                    out.print(movieOrdered.getTitle() + " " + movieOrdered.getCopies_purchased() + ", ");
+                }
+            }
+            
+            response.sendRedirect("checkout.jsp");
+            
+            /*
             String i = request.getParameter("var");
             if (i == null) {
                 out.print("no movie selected to remove");
@@ -42,7 +78,7 @@
                     t.removeMovie(movie);
                 }
                 
-            }
+            }*/
         %>
         <h1>Movie Removed</h1>
         <a href="index.jsp">Home</a>
