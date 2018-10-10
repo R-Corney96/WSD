@@ -20,8 +20,6 @@
     <head>
         <% User user = (User) session.getAttribute("user");
         Object cancelOrderFeedback = (Object) session.getAttribute("cancel");
-        //Temp Debugging
-        out.print(cancelOrderFeedback);
         %>
 
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
@@ -41,11 +39,13 @@
             <h1><%=user.getName()%>'s History</h1>
             <%  if(cancelOrderFeedback != null){
                     if(cancelOrderFeedback.equals("-1")){ %>
-            <div class="error">There was an error cancelling the order.</div>
-            <%      } else if (cancelOrderFeedback.equals("1")){ %>
-            <div class="success">Order Cancelled</div>
-            <%      } 
-                }%>
+            <p class="error">There was an error cancelling the order.</p>
+            <%      } else if(cancelOrderFeedback.equals("1")) {%>
+            <p class="success">Order Cancelled. May take a few seconds for XML to update!</p>
+            <%      }
+                    session.setAttribute("cancel", "0");
+                }
+                %>
             <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
             <%@taglib prefix="x" uri="http://java.sun.com/jsp/jstl/xml" %>
             <c:import var="xml" url="/WEB-INF/history.xml" />
